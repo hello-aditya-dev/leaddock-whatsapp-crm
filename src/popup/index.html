@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WaFlow Dashboard</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="wf-pop-head">
+      <div class="wf-pop-brand">
+        <div class="wf-pop-logo" id="wfLogo">WF</div>
+        <div>
+          <div class="wf-pop-name" id="wfName">WaFlow</div>
+          <div class="wf-pop-tag" id="wfTag">CRM for WhatsApp Web</div>
+        </div>
+      </div>
+      <button class="wf-pop-cta" id="openWa" title="Open WhatsApp Web">Open WhatsApp</button>
+    </header>
+
+    <main class="wf-pop-main">
+      <section class="wf-pop-stats">
+        <div class="wf-pop-stat">
+          <div class="wf-pop-stat__num" id="totalLeads">0</div>
+          <div class="wf-pop-stat__label">Total leads</div>
+        </div>
+        <div class="wf-pop-stat">
+          <div class="wf-pop-stat__num" id="dueCount">0</div>
+          <div class="wf-pop-stat__label">Due today</div>
+        </div>
+      </section>
+
+      <section class="wf-pop-section">
+        <h3 class="wf-pop-h">Status breakdown</h3>
+        <div class="wf-pop-statuses" id="statusList"></div>
+      </section>
+
+      <section class="wf-pop-section">
+        <div class="wf-pop-h-row">
+          <h3 class="wf-pop-h">Follow-ups due</h3>
+        </div>
+        <div class="wf-pop-due" id="dueList"></div>
+      </section>
+
+      <section class="wf-pop-section">
+        <h3 class="wf-pop-h">Recent leads</h3>
+        <div class="wf-pop-recent" id="recentList"></div>
+      </section>
+
+      <section class="wf-pop-actions">
+        <button class="wf-btn wf-btn--ghost" id="exportCsv">Export CSV</button>
+        <button class="wf-btn wf-btn--ghost" id="exportBackup">Backup (JSON)</button>
+        <button class="wf-btn wf-btn--ghost" id="loadDemo">Load demo data</button>
+        <button class="wf-btn wf-btn--ghost" id="resetAll">Reset all data</button>
+        <button class="wf-btn wf-btn--ghost" id="openOptions">Settings</button>
+      </section>
+    </main>
+
+    <footer class="wf-pop-foot">
+      <p class="wf-pop-notice" id="notice">WaFlow is an independent productivity extension. Not affiliated with or endorsed by WhatsApp or Meta.</p>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

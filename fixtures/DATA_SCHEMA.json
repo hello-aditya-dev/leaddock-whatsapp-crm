@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "contacts": {
+    "id": "string",
+    "phone": "string",
+    "name": "string",
+    "company": "string",
+    "email": "string",
+    "product": "string",
+    "budget": "string",
+    "source": "string",
+    "statusId": "string",
+    "tagIds": [
+      "string"
+    ],
+    "followUpDate": "ISO-8601|null",
+    "createdAt": "ISO-8601",
+    "updatedAt": "ISO-8601",
+    "lastSeenAt": "ISO-8601|null"
+  },
+  "notes": {
+    "id": "string",
+    "contactId": "string",
+    "text": "string",
+    "createdAt": "ISO-8601",
+    "updatedAt": "ISO-8601"
+  },
+  "replies": {
+    "id": "string",
+    "name": "string",
+    "shortcut": "string",
+    "content": "string",
+    "category": "string",
+    "usageCount": "number",
+    "createdAt": "ISO-8601",
+    "updatedAt": "ISO-8601"
+  },
+  "tags": {
+    "id": "string",
+    "name": "string",
+    "color": "string"
+  },
+  "statuses": {
+    "id": "string",
+    "name": "string",
+    "color": "string",
+    "order": "number"
+  }
+}

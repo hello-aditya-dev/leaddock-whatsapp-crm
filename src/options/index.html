@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WaFlow Settings</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <header class="wf-set-head">
+      <div class="wf-set-brand">
+        <div class="wf-set-logo" id="wfLogo">WF</div>
+        <div>
+          <h1 class="wf-set-name" id="wfName">WaFlow</h1>
+          <p class="wf-set-tag" id="wfTag">Settings</p>
+        </div>
+      </div>
+      <nav class="wf-set-nav">
+        <a href="#replies">Replies</a>
+        <a href="#statuses">Statuses</a>
+        <a href="#tags">Tags</a>
+        <a href="#data">Data</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <main class="wf-set-main">
+      <section id="replies" class="wf-set-section">
+        <h2>Quick Replies</h2>
+        <p class="wf-set-help">Saved replies you can insert into the composer with one click or a slash shortcut like <code>/price</code>. Variables <code>{{name}}</code>, <code>{{phone}}</code>, <code>{{company}}</code>, <code>{{product}}</code> are filled from the contact. Unknown variables stay visible.</p>
+        <div class="wf-set-toolbar">
+          <input type="text" id="replySearch" placeholder="Search replies…" class="wf-input" />
+          <button class="wf-btn wf-btn--primary" id="addReply">+ New reply</button>
+        </div>
+        <div id="replyList" class="wf-set-list"></div>
+      </section>
+
+      <section id="statuses" class="wf-set-section">
+        <h2>Lead Statuses</h2>
+        <p class="wf-set-help">Edit names and colors. Order is preserved in the panel dropdown and pipeline.</p>
+        <div class="wf-set-toolbar">
+          <button class="wf-btn wf-btn--primary" id="addStatus">+ New status</button>
+        </div>
+        <div id="statusList" class="wf-set-list"></div>
+      </section>
+
+      <section id="tags" class="wf-set-section">
+        <h2>Tags</h2>
+        <p class="wf-set-help">Tags help you filter and segment leads.</p>
+        <div class="wf-set-toolbar">
+          <button class="wf-btn wf-btn--primary" id="addTag">+ New tag</button>
+        </div>
+        <div id="tagList" class="wf-set-list"></div>
+      </section>
+
+      <section id="data" class="wf-set-section">
+        <h2>Data Portability</h2>
+        <p class="wf-set-help">All data is stored locally in your browser. Export regularly. Import and restore replace existing data — previews are shown before committing.</p>
+
+        <div class="wf-set-card">
+          <h3>CSV</h3>
+          <div class="wf-set-actions">
+            <button class="wf-btn" id="exportCsv">Export contacts CSV</button>
+            <button class="wf-btn" id="downloadTemplate">Download CSV template</button>
+            <label class="wf-btn" for="importCsvInput">Import CSV…</label>
+            <input type="file" id="importCsvInput" accept=".csv,text/csv" hidden />
+          </div>
+          <div id="importPreview" class="wf-set-preview"></div>
+        </div>
+
+        <div class="wf-set-card">
+          <h3>JSON Backup / Restore</h3>
+          <div class="wf-set-actions">
+            <button class="wf-btn" id="exportBackup">Download backup</button>
+            <label class="wf-btn" for="restoreInput">Restore from backup…</label>
+            <input type="file" id="restoreInput" accept=".json,application/json" hidden />
+          </div>
+          <div id="restorePreview" class="wf-set-preview"></div>
+        </div>
+
+        <div class="wf-set-card wf-set-card--danger">
+          <h3>Demo & Reset</h3>
+          <div class="wf-set-actions">
+            <button class="wf-btn" id="loadDemo">Load demo data</button>
+            <button class="wf-btn wf-btn--danger" id="resetAll">Reset all data</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="wf-set-section">
+        <h2>About</h2>
+        <div class="wf-set-card">
+          <p><strong id="aboutName">WaFlow</strong> <span id="aboutVersion">v1.0.0</span></p>
+          <p class="wf-set-help" id="aboutNotice"></p>
+          <p class="wf-set-help">Support: <a id="aboutSupport" href="#">support</a> · Website: <a id="aboutWebsite" href="#">project</a> · Privacy: <a id="aboutPrivacy" href="#">policy</a></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="wf-set-foot">
+      <p id="footNotice" class="wf-set-notice"></p>
+    </footer>
+
+    <script type="module" src="settings.js"></script>
+  </body>
+</html>

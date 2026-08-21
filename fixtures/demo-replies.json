@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Greeting",
+    "shortcut": "/hi",
+    "category": "General",
+    "content": "Hi {{name}}, thanks for reaching out. How can we help you today?"
+  },
+  {
+    "name": "Pricing",
+    "shortcut": "/price",
+    "category": "Sales",
+    "content": "Hi {{name}}, happy to help with pricing. Could you share the quantity and requirements you need?"
+  },
+  {
+    "name": "Follow Up",
+    "shortcut": "/followup",
+    "category": "Sales",
+    "content": "Hi {{name}}, just following up on our previous conversation. Please let me know if you'd like me to send the details."
+  },
+  {
+    "name": "Catalogue",
+    "shortcut": "/catalogue",
+    "category": "Sales",
+    "content": "Hi {{name}}, I can send you the relevant catalogue and product details. Please confirm which product you're interested in."
+  },
+  {
+    "name": "Thank You",
+    "shortcut": "/thanks",
+    "category": "General",
+    "content": "Thank you, {{name}}. We appreciate your enquiry and will get back to you shortly."
+  },
+  {
+    "name": "Meeting",
+    "shortcut": "/meeting",
+    "category": "Sales",
+    "content": "Hi {{name}}, would you like to schedule a quick call to discuss your requirements?"
+  }
+]

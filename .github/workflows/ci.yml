@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        working-directory: waflow
+        run: npm install
+
+      - name: Lint
+        working-directory: waflow
+        run: npm run lint
+
+      - name: Test
+        working-directory: waflow
+        run: npm test
+
+      - name: Build
+        working-directory: waflow
+        run: npm run build
+
+      - name: Package release artifacts
+        working-directory: waflow
+        run: npm run package
+
+      - name: Validate release artifacts
+        working-directory: waflow
+        run: |
+          test -f release/waflow-extension-v*.zip
+          test -f release/waflow-source-v*.zip
+          echo "Release artifacts present:"
+          ls -la release/
+
+      - name: Upload extension artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: waflow-extension
+          path: waflow/release/waflow-extension-v*.zip
+          if-no-files-found: error

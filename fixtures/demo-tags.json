@@ -1,0 +1,37 @@
+[
+  {
+    "id": "tag_hot",
+    "name": "Hot",
+    "color": "#EF4444"
+  },
+  {
+    "id": "tag_high_value",
+    "name": "High Value",
+    "color": "#8B5CF6"
+  },
+  {
+    "id": "tag_website",
+    "name": "Website",
+    "color": "#3B82F6"
+  },
+  {
+    "id": "tag_instagram",
+    "name": "Instagram",
+    "color": "#EC4899"
+  },
+  {
+    "id": "tag_referral",
+    "name": "Referral",
+    "color": "#10B981"
+  },
+  {
+    "id": "tag_wholesale",
+    "name": "Wholesale",
+    "color": "#F59E0B"
+  },
+  {
+    "id": "tag_urgent",
+    "name": "Urgent",
+    "color": "#F97316"
+  }
+]

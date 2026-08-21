@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "WaFlow — WhatsApp Web Sales Workspace",
+  "short_name": "WaFlow",
+  "version": "1.0.0",
+  "description": "Turn WhatsApp Web into a lightweight sales CRM. Track leads, notes, follow-ups, and reusable replies — local-first, no backend.",
+  "default_locale": "en",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "WaFlow Dashboard",
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "options_ui": {
+    "page": "src/options/index.html",
+    "open_in_tab": true
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://web.whatsapp.com/*"],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["src/content/main.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/icons/*", "src/content/ui/styles.css"],
+      "matches": ["https://web.whatsapp.com/*"]
+    }
+  ]
+}

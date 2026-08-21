@@ -1,0 +1,44 @@
+[
+  {
+    "id": "new_lead",
+    "name": "New Lead",
+    "color": "#3B82F6",
+    "order": 1
+  },
+  {
+    "id": "contacted",
+    "name": "Contacted",
+    "color": "#06B6D4",
+    "order": 2
+  },
+  {
+    "id": "interested",
+    "name": "Interested",
+    "color": "#8B5CF6",
+    "order": 3
+  },
+  {
+    "id": "follow_up",
+    "name": "Follow Up",
+    "color": "#F59E0B",
+    "order": 4
+  },
+  {
+    "id": "qualified",
+    "name": "Qualified",
+    "color": "#10B981",
+    "order": 5
+  },
+  {
+    "id": "won",
+    "name": "Won",
+    "color": "#22C55E",
+    "order": 6
+  },
+  {
+    "id": "lost",
+    "name": "Lost",
+    "color": "#6B7280",
+    "order": 7
+  }
+]
