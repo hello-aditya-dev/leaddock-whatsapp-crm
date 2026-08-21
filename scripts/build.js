@@ -37,9 +37,10 @@ async function main() {
 
   // Bundle popup + options as modules (MV3 allows module scripts in pages).
   // We keep them as ES modules but bundle for fewer requests + node_modules safety.
+  // Output MUST sit next to the copied HTML (dist/src/popup/, dist/src/options/).
   for (const [name, entry] of [
-    ["popup/popup.js", "src/popup/popup.js"],
-    ["options/settings.js", "src/options/settings.js"],
+    ["src/popup/popup.js", "src/popup/popup.js"],
+    ["src/options/settings.js", "src/options/settings.js"],
   ]) {
     await esbuild.build({
       entryPoints: [path.join(root, entry)],
