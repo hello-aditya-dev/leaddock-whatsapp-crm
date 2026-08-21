@@ -62,6 +62,14 @@ async function main() {
   if (existsSync(path.join(root, "assets"))) {
     await cp(path.join(root, "assets"), path.join(dist, "assets"), { recursive: true });
   }
+  // Copy the panel stylesheet so the web_accessible_resource declaration
+  // resolves (used as a runtime fallback when the inlined CSS is unavailable).
+  await mkdir(path.join(dist, "src/content/ui"), { recursive: true });
+  await cp(
+    path.join(root, "src/content/ui/styles.css"),
+    path.join(dist, "src/content/ui/styles.css"),
+    { recursive: false }
+  );
   if (existsSync(path.join(root, "fixtures"))) {
     await cp(path.join(root, "fixtures"), path.join(dist, "fixtures"), { recursive: true });
   }
