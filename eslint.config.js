@@ -1,4 +1,4 @@
-// Flat ESLint config for WaFlow. Vanilla JS ESM, browser + webextensions env.
+// Flat ESLint config for LeadDock. Vanilla JS ESM, browser + webextensions env.
 import globals from "globals";
 import js from "@eslint/js";
 

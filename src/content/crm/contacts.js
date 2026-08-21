@@ -8,6 +8,7 @@ import { uid } from "../utils/ids.js";
 import { nowIso } from "../utils/dates.js";
 import { validateContact, normalizePhone } from "../utils/validators.js";
 import { dueState } from "../utils/dates.js";
+import * as activity from "./activity.js";
 
 /**
  * Resolve a contact by phone (normalized) or id. Used by the WhatsApp adapter
@@ -80,14 +81,17 @@ export async function create(data) {
     db.contacts[id] = contact;
     return db;
   });
+  try { await activity.record(id, "contact_created", { label: contact.name || contact.phone || id }); } catch (e) {}
   return contact;
 }
 
 export async function update(id, patch) {
   let updated = null;
+  let prevStatus = null;
   await storage.update((db) => {
     const cur = db.contacts[id];
     if (!cur) throw new Error("Contact not found: " + id);
+    prevStatus = cur.statusId;
     const next = { ...cur, ...patch, id, updatedAt: nowIso() };
     const v = validateContact(next);
     if (!v.ok) throw new Error(v.errors[0]);
@@ -95,18 +99,31 @@ export async function update(id, patch) {
     updated = v.value;
     return db;
   });
+  // Record status change as an activity event.
+  if (updated && patch && patch.statusId && patch.statusId !== prevStatus) {
+    try {
+      const db = await storage.load();
+      const s = db.statuses[patch.statusId];
+      await activity.record(id, "status_changed", { label: s ? s.name : patch.statusId });
+    } catch (e) {}
+  }
   return updated;
 }
 
 export async function remove(id) {
   await storage.update((db) => {
     delete db.contacts[id];
-    // Remove notes + follow-ups for this contact.
+    // Remove notes + follow-ups + activity for this contact.
     for (const nId of Object.keys(db.notes)) {
       if (db.notes[nId].contactId === id) delete db.notes[nId];
     }
     for (const fId of Object.keys(db.followUps)) {
       if (db.followUps[fId].contactId === id) delete db.followUps[fId];
+    }
+    if (db.activity) {
+      for (const aId of Object.keys(db.activity)) {
+        if (db.activity[aId].contactId === id) delete db.activity[aId];
+      }
     }
     return db;
   });
@@ -116,6 +133,7 @@ export async function remove(id) {
 /** Add/remove a tag on a contact. */
 export async function toggleTag(contactId, tagId) {
   let added = false;
+  let tagName = "";
   await storage.update((db) => {
     const c = db.contacts[contactId];
     if (!c) throw new Error("Contact not found");
@@ -129,8 +147,12 @@ export async function toggleTag(contactId, tagId) {
     }
     c.tagIds = Array.from(set);
     c.updatedAt = nowIso();
+    tagName = db.tags[tagId] ? db.tags[tagId].name : tagId;
     return db;
   });
+  try {
+    await activity.record(contactId, added ? "tag_added" : "tag_removed", { label: tagName });
+  } catch (e) {}
   return added;
 }
 

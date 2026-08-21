@@ -1,12 +1,12 @@
-# WaFlow Security Policy
+# LeadDock Security Policy
 
 **Version:** 1.0.0
 **Effective date:** 2026-01-01
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
 
-This document describes WaFlow's threat model, the security-relevant decisions
+This document describes LeadDock's threat model, the security-relevant decisions
 in its architecture, how data is stored, how to report vulnerabilities, and
 what versions are supported.
 
@@ -14,16 +14,16 @@ what versions are supported.
 
 ## 1. Threat model
 
-WaFlow is a local-first, client-only Chrome extension. It has no backend, no
+LeadDock is a local-first, client-only Chrome extension. It has no backend, no
 remote API, and no remote code execution surface in the default build.
 
-| Threat surface                | WaFlow's posture                                                                                     |
+| Threat surface                | LeadDock's posture                                                                                     |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------- |
 | Remote code execution         | No `eval`, no `Function(...)` constructor, no dynamic `<script>` injection. MV3's CSP forbids remote code. |
 | Cross-site data exfiltration  | CRM data lives only in `chrome.storage.local`, scoped to the extension's origin. The content script can read only the WhatsApp Web DOM. |
-| Tampered WhatsApp DOM         | WaFlow sanitizes untrusted DOM strings before rendering them in its own (shadow-root-isolated) UI.     |
+| Tampered WhatsApp DOM         | LeadDock sanitizes untrusted DOM strings before rendering them in its own (shadow-root-isolated) UI.     |
 | Malicious extension updates   | Updates flow only through the Chrome Web Store's signed update channel (when published) or through the operator's own dev/update process for unpacked installs. The Licensor does not operate an update server. |
-| Account compromise            | WaFlow never holds WhatsApp credentials. It does not log in, does not handle QR-session material, and cannot read your WhatsApp password. |
+| Account compromise            | LeadDock never holds WhatsApp credentials. It does not log in, does not handle QR-session material, and cannot read your WhatsApp password. |
 | Data leakage via permissions  | Minimal permissions (`storage` + `host_permissions: web.whatsapp.com`) by design. See §4.              |
 
 ## 2. How data is stored
@@ -31,7 +31,7 @@ remote API, and no remote code execution surface in the default build.
 - **Where:** `chrome.storage.local`. This is a browser-scoped storage partition
   tied to the extension's origin and the browser profile that installed it.
 - **What:** CRM records only (see `PRIVACY.md` §3 and `fixtures/DATA_SCHEMA.json`).
-- **Encryption at rest:** Provided by Chrome's storage implementation; WaFlow
+- **Encryption at rest:** Provided by Chrome's storage implementation; LeadDock
   does not implement its own encryption layer in v1.
 - **Backups:** When you export JSON or CSV, the file lands in your browser's
   default download location. Treat these exports as sensitive — they contain
@@ -39,7 +39,7 @@ remote API, and no remote code execution surface in the default build.
 
 ## 3. Code quality and injection defenses
 
-WaFlow follows a defensive coding baseline:
+LeadDock follows a defensive coding baseline:
 
 - **No `eval`.** No use of `eval`, `new Function(...)`, `setTimeout(string)`,
   or `setInterval(string)`.
@@ -62,7 +62,7 @@ WaFlow follows a defensive coding baseline:
 
 ## 4. Permissions and minimization
 
-WaFlow requests only the permissions it strictly needs:
+LeadDock requests only the permissions it strictly needs:
 
 | Permission                          | Justification                                                                               |
 | ----------------------------------- | ------------------------------------------------------------------------------------------- |
@@ -70,19 +70,19 @@ WaFlow requests only the permissions it strictly needs:
 | `host_permissions: web.whatsapp.com`| Content script must run on `https://web.whatsapp.com/*` to overlay the CRM panel.           |
 
 The host permission is scoped to `web.whatsapp.com` only — not `<all_urls>`, not
-`http://*/*`, not the broader `*://*/*`. WaFlow cannot read any other website
+`http://*/*`, not the broader `*://*/*`. LeadDock cannot read any other website
 you visit.
 
 ## 5. Disclosure scope
 
-WaFlow accesses only the WhatsApp Web DOM (`https://web.whatsapp.com/*`). The
+LeadDock accesses only the WhatsApp Web DOM (`https://web.whatsapp.com/*`). The
 DOM reads are limited to:
 
 - The current chat header (to detect the active contact).
 - The composer element (to insert text when you choose a quick reply).
 - The chat list container (to observe when the active chat changes).
 
-WaFlow does **not** read:
+LeadDock does **not** read:
 
 - Message bodies (incoming or outgoing).
 - Media (images, voice notes, documents).
@@ -93,12 +93,12 @@ WaFlow does **not** read:
 
 ## 6. Reporting a vulnerability
 
-If you believe you have found a security vulnerability in WaFlow, please
+If you believe you have found a security vulnerability in LeadDock, please
 report it responsibly:
 
 - Email: see `supportEmail` in `src/config/brand.js` (default placeholder:
   `security@example.com` — replace before publishing).
-- Subject: `[WaFlow Security] <short summary>`.
+- Subject: `[LeadDock Security] <short summary>`.
 - Include: a clear description, reproduction steps, affected version
   (`manifest.json` `version` field), and any proof-of-concept.
 
@@ -113,7 +113,7 @@ Please do not open public GitHub issues for security reports.
 
 ## 7. Supported versions
 
-Only the latest minor release of WaFlow receives security fixes. Older
+Only the latest minor release of LeadDock receives security fixes. Older
 versions are supported on a best-effort basis. The current supported version is
 listed in `manifest.json` (currently `1.0.0`) and in `CHANGELOG.md`.
 
@@ -121,10 +121,10 @@ listed in `manifest.json` (currently `1.0.0`) and in `CHANGELOG.md`.
 
 - Vulnerabilities in WhatsApp Web itself or in Meta's infrastructure — report
   those to Meta via their bug bounty program.
-- Issues arising from a modified or rebranded version of WaFlow that you did
+- Issues arising from a modified or rebranded version of LeadDock that you did
   not obtain from this repository or the Chrome Web Store listing maintained
   by the Licensor.
-- Social-engineering or phishing attacks against WaFlow users.
+- Social-engineering or phishing attacks against LeadDock users.
 
 ## 9. Contact
 

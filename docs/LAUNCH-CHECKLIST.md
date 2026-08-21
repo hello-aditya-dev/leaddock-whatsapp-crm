@@ -1,9 +1,9 @@
-# WaFlow Launch Checklist
+# LeadDock Launch Checklist
 
-This is the canonical release checklist for shipping a WaFlow release. Use it
+This is the canonical release checklist for shipping a LeadDock release. Use it
 for every minor and patch release. Tick every item before tagging.
 
-> **Independence notice.** WaFlow is an independent productivity extension
+> **Independence notice.** LeadDock is an independent productivity extension
 > for WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or
 > Meta. The independence notice must appear in every public-facing surface
 > listed below.
@@ -28,8 +28,8 @@ for every minor and patch release. Tick every item before tagging.
 
 - [ ] `npm run build` succeeds; `dist/` produced.
 - [ ] `npm run package` succeeds; produced:
-  - [ ] `release/waflow-extension-vX.Y.Z.zip`
-  - [ ] `release/waflow-source-vX.Y.Z.zip`
+  - [ ] `release/leaddock-extension-vX.Y.Z.zip`
+  - [ ] `release/leaddock-source-vX.Y.Z.zip`
 - [ ] Extension ZIP excludes `node_modules/`, `tests/`, `.git/`, `fixtures/`,
        `release/`, `dist/`, editor files, OS files.
 - [ ] Source ZIP includes the full repo (without `node_modules/`, `.git/`,
@@ -119,24 +119,24 @@ Independence notice present and accurate in:
 - [ ] `src/config/brand.js` `supportEmail` is monitored.
 - [ ] Security reporting email (or alias) monitored.
 - [ ] GitHub Issues collection enabled at
-       <https://github.com/witejackel-eng/waflow-whatsapp-crm/issues>.
+       <https://github.com/witejackel-eng/leaddock-whatsapp-crm/issues>.
 - [ ] Issue templates (bug report, feature request) present.
 - [ ] Refund / support policy written on the product page
        (`docs/SELLING.md` §6).
 
 ## 9. Version tag and GitHub release
 
-- [ ] `git tag -a vX.Y.Z -m "WaFlow vX.Y.Z"`
+- [ ] `git tag -a vX.Y.Z -m "LeadDock vX.Y.Z"`
 - [ ] `git push origin main && git push origin vX.Y.Z`
 - [ ] GitHub Release created from the tag.
 - [ ] Release notes = the `CHANGELOG.md` entry for the version.
 - [ ] Both ZIPs attached to the GitHub Release:
-  - `release/waflow-extension-vX.Y.Z.zip`
-  - `release/waflow-source-vX.Y.Z.zip`
+  - `release/leaddock-extension-vX.Y.Z.zip`
+  - `release/leaddock-source-vX.Y.Z.zip`
 
 ## 10. Chrome Web Store submission (if applicable)
 
-- [ ] `release/waflow-extension-vX.Y.Z.zip` uploaded to the existing listing
+- [ ] `release/leaddock-extension-vX.Y.Z.zip` uploaded to the existing listing
        as a new package.
 - [ ] Version bumped (Chrome Web Store rejects downgrades).
 - [ ] Submit for review.

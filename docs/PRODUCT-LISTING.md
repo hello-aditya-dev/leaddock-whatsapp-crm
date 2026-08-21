@@ -1,10 +1,10 @@
-# WaFlow Product Listing
+# LeadDock Product Listing
 
-Ready-to-paste product page copy for the WaFlow storefront. Use this for the
+Ready-to-paste product page copy for the LeadDock storefront. Use this for the
 Chrome Web Store long description, the marketing landing page hero section,
 and any marketplace listing (Gumroad, Lemon Squeezy, etc.).
 
-> **Independence notice.** WaFlow is an independent productivity extension
+> **Independence notice.** LeadDock is an independent productivity extension
 > for WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or
 > Meta. The independence notice below must appear on every public-facing
 > surface where this copy is used.
@@ -53,7 +53,7 @@ backend. No analytics. No telemetry by default. Nothing leaves your browser.
 
 ## You always send
 
-WaFlow inserts text into the composer. It never auto-sends. There is no bulk
+LeadDock inserts text into the composer. It never auto-sends. There is no bulk
 messaging, no campaign automation, no message-history scraping.
 
 ## Pricing
@@ -70,30 +70,30 @@ for the full license template.
 
 ## FAQ (short)
 
-**Is WaFlow affiliated with WhatsApp or Meta?**
-No. WaFlow is an independent productivity extension. It is not affiliated
+**Is LeadDock affiliated with WhatsApp or Meta?**
+No. LeadDock is an independent productivity extension. It is not affiliated
 with or endorsed by WhatsApp or Meta.
 
-**Does WaFlow auto-send messages?**
-No. WaFlow inserts text into the WhatsApp composer. You always press send.
+**Does LeadDock auto-send messages?**
+No. LeadDock inserts text into the WhatsApp composer. You always press send.
 
-**Does WaFlow read my messages?**
-No. WaFlow reads only the current chat header (to identify the contact) and
+**Does LeadDock read my messages?**
+No. LeadDock reads only the current chat header (to identify the contact) and
 the composer element (to insert text). It does not read message content or
 scrape message history.
 
 **Where is my CRM data stored?**
 Locally, in your browser, via `chrome.storage.local`. Nothing is transmitted.
 
-**What permissions does WaFlow request?**
+**What permissions does LeadDock request?**
 Only `storage` and `host_permissions: https://web.whatsapp.com/*`. No
 `<all_urls>`, no `tabs`, no `cookies`.
 
-**Can I rebrand WaFlow?**
+**Can I rebrand LeadDock?**
 Yes, under the Commercial, Agency, or Extended Reseller tiers. Edit
 `src/config/brand.js`, replace the icons, and rebuild.
 
-**Can I resell WaFlow?**
+**Can I resell LeadDock?**
 Yes, under the Extended Reseller tier. See `docs/LICENSES.md`.
 
 **Is there a backend / cloud sync?**
@@ -101,23 +101,23 @@ Not in v1.0.0. Cloud sync is on the V2 exploration list — see `docs/ROADMAP.md
 
 ## Independence notice
 
-WaFlow is an independent productivity extension for WhatsApp Web. It is not
+LeadDock is an independent productivity extension for WhatsApp Web. It is not
 affiliated with or endorsed by WhatsApp or Meta. "WhatsApp" and "WhatsApp
 Web" are used descriptively to identify the application the extension
 interoperates with.
 
 ## Call to action
 
-Get WaFlow.
+Get LeadDock.
 
 - Download / install: see `docs/INSTALLATION.md`.
-- Source code and releases: <https://github.com/witejackel-eng/waflow-whatsapp-crm>
+- Source code and releases: <https://github.com/witejackel-eng/leaddock-whatsapp-crm>
 - License tiers: see `docs/LICENSES.md`.
 - Privacy: see `PRIVACY.md`.
 
 ## Footer copy
 
-WaFlow is an independent productivity extension for WhatsApp Web. Not
+LeadDock is an independent productivity extension for WhatsApp Web. Not
 affiliated with or endorsed by WhatsApp or Meta. All CRM data is stored
 locally in your browser. No backend. No telemetry by default.
 

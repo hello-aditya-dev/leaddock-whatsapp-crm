@@ -55,15 +55,15 @@ test("export→import round trip preserves core fields", async () => {
   assert.equal(found[0].company, "RT");
 });
 
-test("validateBackup rejects non-waflow payloads", () => {
+test("validateBackup rejects non-leaddock payloads", () => {
   const v = data.validateBackupPayload({ app: "other", version: 1 });
   assert.equal(v.ok, false);
-  const v2 = data.validateBackupPayload({ app: "waflow", version: 1, data: {} });
+  const v2 = data.validateBackupPayload({ app: "leaddock", version: 1, data: {} });
   assert.equal(v2.ok, true);
 });
 
 test("validateBackup rejects bad version", () => {
-  const v = data.validateBackupPayload({ app: "waflow", version: 0, data: {} });
+  const v = data.validateBackupPayload({ app: "leaddock", version: 0, data: {} });
   assert.equal(v.ok, false);
 });
 
@@ -71,7 +71,7 @@ test("exportBackup→restoreBackup round trip", async () => {
   await fresh();
   await contacts.create({ name: "Backup Test", phone: "+1", statusId: "interested" });
   const backup = await data.exportBackup();
-  assert.equal(backup.app, "waflow");
+  assert.equal(backup.app, "leaddock");
   await storage.reset();
   await data.restoreBackup(backup);
   const found = await contacts.search("Backup Test");

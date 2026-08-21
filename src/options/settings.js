@@ -1,5 +1,5 @@
 /**
- * options/settings.js — WaFlow options page.
+ * options/settings.js — LeadDock options page.
  *
  * Manages quick replies, statuses, tags, CSV import/export, JSON backup/
  * restore, demo data, and reset. Uses the shared storage + CRM modules.
@@ -9,19 +9,23 @@ import * as statuses from "../content/crm/statuses.js";
 import * as tags from "../content/crm/tags.js";
 import * as data from "../content/crm/data.js";
 import * as demo from "../content/crm/demo.js";
+import * as storage from "../content/storage/storage.js";
+import * as contacts from "../content/crm/contacts.js";
+import * as followups from "../content/crm/followups.js";
+import * as activity from "../content/crm/activity.js";
 import brand from "../config/brand.js";
 
 const $ = (id) => document.getElementById(id);
 
 function init() {
-  $("wfLogo").textContent = brand.shortName || "WF";
-  $("wfName").textContent = brand.name || "WaFlow";
+  $("wfLogo").textContent = brand.shortName || "LD";
+  $("wfName").textContent = brand.name || "LeadDock";
   $("wfTag").textContent = "Settings";
-  $("aboutName").textContent = brand.name || "WaFlow";
+  $("aboutName").textContent = brand.name || "LeadDock";
   $("aboutVersion").textContent = "v" + (brand.version || "1.0.0");
   $("aboutNotice").textContent = brand.independenceNotice;
   $("aboutSupport").textContent = brand.supportEmail || "support";
-  $("aboutSupport").href = "mailto:" + (brand.supportEmail || "support@example.com");
+  $("aboutSupport").href = "mailto:" + (brand.supportEmail || "witejackel@gmail.com");
   $("aboutWebsite").href = brand.website || "#";
   $("aboutPrivacy").href = brand.privacyUrl || "#";
   $("footNotice").textContent = brand.independenceNotice;
@@ -30,6 +34,88 @@ function init() {
   wireStatuses();
   wireTags();
   wireData();
+  wireDiagnostics();
+}
+
+// ---------- Diagnostics ----------
+function wireDiagnostics() {
+  renderDiagnostics();
+  $("copyDiagnostics").addEventListener("click", async () => {
+    const snapshot = await buildDiagnosticsText();
+    try {
+      await navigator.clipboard.writeText(snapshot);
+      alert("Diagnostics copied to clipboard.\nPaste into your support email to " + (brand.supportEmail || "witejackel@gmail.com"));
+    } catch (err) {
+      // Fallback: open a textarea the user can copy from.
+      const ta = document.createElement("textarea");
+      ta.value = snapshot;
+      ta.style.cssText = "position:fixed;width:600px;height:300px;top:10%;left:50%;transform:translateX(-50%);z-index:9999";
+      document.body.appendChild(ta);
+      ta.select();
+      alert("Clipboard unavailable. Copy the text from the textarea below.");
+    }
+  });
+}
+
+async function buildDiagnosticsText() {
+  const db = await storage.load();
+  const lines = [];
+  lines.push("LeadDock Diagnostics");
+  lines.push("====================");
+  lines.push("LeadDock version: " + (brand.version || "1.0.0"));
+  lines.push("Backend: " + storage.backendKind());
+  lines.push("Total contacts: " + Object.keys(db.contacts || {}).length);
+  lines.push("Total notes: " + Object.keys(db.notes || {}).length);
+  lines.push("Total replies: " + Object.keys(db.replies || {}).length);
+  lines.push("Total tags: " + Object.keys(db.tags || {}).length);
+  lines.push("Total statuses: " + Object.keys(db.statuses || {}).length);
+  lines.push("Total follow-ups: " + Object.keys(db.followUps || {}).length);
+  lines.push("Total activity events: " + Object.keys(db.activity || {}).length);
+  const demoLoaded = db.meta && db.meta.demoLoaded ? true : false;
+  const onboarded = db.meta && db.meta.onboardingDone ? true : false;
+  lines.push("Demo data loaded: " + (demoLoaded ? "yes" : "no"));
+  lines.push("Onboarding done: " + (onboarded ? "yes" : "no"));
+  lines.push("Schema migrations applied: " + JSON.stringify((db.meta && db.meta.schemaMigrations) || []));
+  lines.push("");
+  lines.push("Note: WhatsApp-Web adapter diagnostics (selector/observer health) are");
+  lines.push("available in the panel's Diagnostics modal inside WhatsApp Web.");
+  lines.push("");
+  lines.push("Support: " + (brand.supportEmail || "witejackel@gmail.com"));
+  return lines.join("\n");
+}
+
+async function renderDiagnostics() {
+  const grid = $("diagGrid");
+  if (!grid) return;
+  const db = await storage.load();
+  const demoLoaded = Boolean(db.meta && db.meta.demoLoaded);
+  grid.innerHTML = "";
+  const rows = [
+    ["LeadDock version", brand.version || "1.0.0", true],
+    ["Storage backend", storage.backendKind(), true],
+    ["Total contacts", String(Object.keys(db.contacts || {}).length), true],
+    ["Total notes", String(Object.keys(db.notes || {}).length), true],
+    ["Total replies", String(Object.keys(db.replies || {}).length), true],
+    ["Total tags", String(Object.keys(db.tags || {}).length), true],
+    ["Total follow-ups", String(Object.keys(db.followUps || {}).length), true],
+    ["Total activity events", String(Object.keys(db.activity || {}).length), true],
+    ["Demo data loaded", demoLoaded ? "yes" : "no", !demoLoaded],
+  ];
+  for (const [label, detail, ok] of rows) {
+    const row = document.createElement("div");
+    row.className = "wf-set-row";
+    row.style.gridTemplateColumns = "1fr auto 1fr";
+    row.innerHTML =
+      `<span style="font-weight:600">${esc(label)}</span>` +
+      `<span style="font-weight:800;color:${ok ? "var(--success)" : "var(--warn)"}">${ok ? "✓" : "!"}</span>` +
+      `<span style="color:var(--muted);text-align:right">${esc(detail)}</span>`;
+    grid.appendChild(row);
+  }
+  const note = document.createElement("p");
+  note.className = "wf-set-help";
+  note.style.marginTop = "8px";
+  note.textContent = "WhatsApp-Web adapter diagnostics (selector/observer health) are available in the panel's Diagnostics modal inside WhatsApp Web.";
+  grid.appendChild(note);
 }
 
 // ---------- Replies ----------
@@ -201,10 +287,10 @@ async function renderTags() {
 function wireData() {
   $("exportCsv").addEventListener("click", async () => {
     const csv = await data.exportContactsCsv();
-    download("waflow-contacts.csv", csv, "text/csv");
+    download("leaddock-contacts.csv", csv, "text/csv");
   });
   $("downloadTemplate").addEventListener("click", () => {
-    download("waflow-template.csv", data.csvTemplateString(), "text/csv");
+    download("leaddock-template.csv", data.csvTemplateString(), "text/csv");
   });
   $("importCsvInput").addEventListener("change", async (e) => {
     const file = e.target.files[0];
@@ -237,7 +323,7 @@ function wireData() {
 
   $("exportBackup").addEventListener("click", async () => {
     const backup = await data.exportBackup();
-    download("waflow-backup.json", JSON.stringify(backup, null, 2), "application/json");
+    download("leaddock-backup.json", JSON.stringify(backup, null, 2), "application/json");
   });
   $("restoreInput").addEventListener("change", async (e) => {
     const file = e.target.files[0];
@@ -254,7 +340,7 @@ function wireData() {
     }
     const v = data.validateBackupPayload(payload);
     if (!v.ok) {
-      box.innerHTML = `<div class="wf-set-preview__err">Not a valid WaFlow backup: ${esc(v.errors.join("; "))}</div>`;
+      box.innerHTML = `<div class="wf-set-preview__err">Not a valid LeadDock backup: ${esc(v.errors.join("; "))}</div>`;
       return;
     }
     const d = v.value.data;

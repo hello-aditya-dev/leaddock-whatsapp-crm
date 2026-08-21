@@ -1,7 +1,7 @@
-# WaFlow Selling Copy
+# LeadDock Selling Copy
 
 ## Product
-WaFlow — WhatsApp Web Sales Workspace
+LeadDock — WhatsApp Web CRM
 
 ## Hero
 Turn WhatsApp Web into a lightweight sales CRM.
@@ -19,7 +19,7 @@ Organize leads, add notes, manage follow-ups, and insert reusable replies withou
 - White-label the source for commercial projects
 
 ## Positioning
-Your WhatsApp inbox is not a CRM. WaFlow adds the missing sales layer without forcing a team into a large, expensive CRM.
+Your WhatsApp inbox is not a CRM. LeadDock adds the missing sales layer without forcing a team into a large, expensive CRM.
 
 ## Pricing
 Personal — $29
@@ -28,4 +28,4 @@ Agency — $99
 Extended Reseller — $149
 
 ## Important disclosure
-WaFlow is an independent productivity extension for WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
+LeadDock is an independent productivity extension for WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.

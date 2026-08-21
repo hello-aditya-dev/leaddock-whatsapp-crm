@@ -1,11 +1,11 @@
-# Selling WaFlow
+# Selling LeadDock
 
-This document is the seller's playbook for WaFlow: how to position it, what
+This document is the seller's playbook for LeadDock: how to position it, what
 each of the four license tiers means, how to structure the product page, the
 demo video script, the delivery contents, support and refund guidance, buyer
 onboarding, and pricing rationale.
 
-> **Independence notice.** WaFlow is an independent productivity extension
+> **Independence notice.** LeadDock is an independent productivity extension
 > for WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or
 > Meta. Every sales surface (product page, listing, demo video, delivery
 > email, receipt) must preserve this notice. **Do not use deceptive claims** —
@@ -16,14 +16,14 @@ onboarding, and pricing rationale.
 
 ## 1. Positioning
 
-WaFlow's positioning, verbatim:
+LeadDock's positioning, verbatim:
 
 > Turn WhatsApp Web into a lightweight sales CRM.
 >
 > Organize leads, add notes, manage follow-ups, and insert reusable replies
 > without leaving WhatsApp Web.
 
-Pitch the buyer on what WaFlow replaces: the spreadsheet / notepad / sticky
+Pitch the buyer on what LeadDock replaces: the spreadsheet / notepad / sticky
 note combo that small sales teams use to manage WhatsApp leads. Emphasize:
 
 - **Local-first.** No backend, no SaaS subscription, no monthly seat fees, no
@@ -37,14 +37,14 @@ Avoid:
 
 - Comparisons that imply WhatsApp integration partnerships.
 - Promises of CRM-level metrics (revenue forecasts, opportunity scoring) that
-  WaFlow does not provide in v1.
+  LeadDock does not provide in v1.
 - Any claim about future roadmap features as if they ship today.
 
 ## 2. The four tiers
 
 | Tier                | Price | Best for                                  | What you can do                                                                                  |
 | ------------------- | ----- | ----------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Personal            | $29   | Solo users                                | Install and use WaFlow for your own WhatsApp Web leads. No resale, no redistribution.            |
+| Personal            | $29   | Solo users                                | Install and use LeadDock for your own WhatsApp Web leads. No resale, no redistribution.            |
 | Commercial          | $59   | One organization using it internally      | Modify the source, ship one branded end product inside your org. No reselling the kit.           |
 | Agency              | $99   | Agencies delivering client work           | Deliver up to 5 branded end products to clients. Clients get the binary, not the source.         |
 | Extended Reseller   | $149  | Resellers and white-label SaaS businesses | Full white-label + resell rights. Unlimited end products. May resell the source under your brand.|
@@ -54,13 +54,13 @@ the full license template.
 
 ## 3. Product page structure
 
-A high-converting product page for WaFlow uses this skeleton:
+A high-converting product page for LeadDock uses this skeleton:
 
 1. **Hero** — headline + subheadline + primary CTA.
    - Headline: "Turn WhatsApp Web into a lightweight sales CRM."
    - Subheadline: "Organize leads, add notes, manage follow-ups, and insert
      reusable replies without leaving WhatsApp Web."
-   - Primary CTA: "Get WaFlow."
+   - Primary CTA: "Get LeadDock."
 2. **Independence notice** — small, prominent callout under the hero.
 3. **Core benefits** — 6–8 bullet points (track leads, attach notes, reusable
    replies, slash shortcuts, follow-ups without auto-send, search, export /
@@ -89,18 +89,18 @@ customer data.
 
 | #   | Action                                                                                                | Voiceover / caption                                                                                       |
 | --- | ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| 1   | Open Chrome. Show `chrome://extensions`. Toggle Developer mode. Click **Load unpacked**.              | "WaFlow installs as a Manifest V3 Chrome extension. Load it unpacked or from the Chrome Web Store."       |
-| 2   | Open `https://web.whatsapp.com`. A 1:1 chat opens.                                                   | "Open WhatsApp Web. WaFlow detects the chat you're on."                                                   |
+| 1   | Open Chrome. Show `chrome://extensions`. Toggle Developer mode. Click **Load unpacked**.              | "LeadDock installs as a Manifest V3 Chrome extension. Load it unpacked or from the Chrome Web Store."       |
+| 2   | Open `https://web.whatsapp.com`. A 1:1 chat opens.                                                   | "Open WhatsApp Web. LeadDock detects the chat you're on."                                                   |
 | 3   | Show the CRM panel sliding in beside the chat.                                                        | "The CRM panel appears beside your conversation."                                                          |
 | 4   | Click the status dropdown, change to "Interested."                                                   | "Set a lead status. New Lead, Contacted, Interested, Follow Up, Qualified, Won, Lost — all editable."    |
 | 5   | Add a tag "Hot" and a note "Wants pricing for 50 units."                                              | "Add tags and notes. They attach to the contact, not the chat."                                           |
-| 6   | Set a follow-up to "In 3 Days." Show the dashboard popup with the follow-up listed.                  | "Set follow-ups. They appear in your dashboard. WaFlow never auto-sends anything."                         |
+| 6   | Set a follow-up to "In 3 Days." Show the dashboard popup with the follow-up listed.                  | "Set follow-ups. They appear in your dashboard. LeadDock never auto-sends anything."                         |
 | 7   | Type `/price` in the composer. The reply picker opens. Press Enter.                                  | "Type a slash shortcut to insert a saved reply."                                                          |
 | 8   | Show the inserted text with `{{name}}` substituted. Highlight that the user still presses send.      | "Template variables fill in automatically. You always press send."                                       |
 | 9   | Press `Ctrl/Cmd+K`. Show the command palette. Run "Search contacts."                                  | "Open the command palette with Ctrl or Cmd+K."                                                            |
 | 10  | Open the popup dashboard. Show total leads, status counts, today's follow-ups.                       | "A focused dashboard. Total leads, status counts, today's follow-ups."                                    |
 | 11  | Export CSV. Export JSON backup.                                                                       | "Export to CSV. Back up to JSON. Your data stays local."                                                  |
-| 12  | End card: headline, "Get WaFlow," independence notice.                                                | "WaFlow — Turn WhatsApp Web into a lightweight sales CRM. Independent. Not affiliated with WhatsApp or Meta." |
+| 12  | End card: headline, "Get LeadDock," independence notice.                                                | "LeadDock — Turn WhatsApp Web into a lightweight sales CRM. Independent. Not affiliated with WhatsApp or Meta." |
 
 Keep the screen capture 1280×800 or higher. Render at 30 fps minimum. Add
 captions for accessibility.
@@ -111,8 +111,8 @@ When a buyer purchases any tier above Personal, deliver:
 
 | Item                                                          | Personal | Commercial | Agency | Extended Reseller |
 | ------------------------------------------------------------ | -------- | ---------- | ------ | ----------------- |
-| `waflow-extension-vX.Y.Z.zip` (built, installable)           | Yes      | Yes        | Yes    | Yes               |
-| `waflow-source-vX.Y.Z.zip` (full source)                      | No       | Yes        | Yes    | Yes               |
+| `leaddock-extension-vX.Y.Z.zip` (built, installable)           | Yes      | Yes        | Yes    | Yes               |
+| `leaddock-source-vX.Y.Z.zip` (full source)                      | No       | Yes        | Yes    | Yes               |
 | `README.md`                                                   | Yes      | Yes        | Yes    | Yes               |
 | `LICENSE.md` (their tier highlighted)                          | Yes      | Yes        | Yes    | Yes               |
 | `PRIVACY.md`                                                  | Yes      | Yes        | Yes    | Yes               |
@@ -194,13 +194,13 @@ visual hierarchy with that intent.
 
 To protect the product, the Chrome Web Store listing, and the buyer:
 
-- Do **not** claim WaFlow is affiliated with or endorsed by WhatsApp or Meta.
-- Do **not** claim WaFlow is "WhatsApp-approved," "ban-proof," or "policy
+- Do **not** claim LeadDock is affiliated with or endorsed by WhatsApp or Meta.
+- Do **not** claim LeadDock is "WhatsApp-approved," "ban-proof," or "policy
   certified."
 - Do **not** sell features that do not exist in v1 (e.g., "AI lead scoring,"
   "automated campaigns," "cloud sync"). See `docs/ROADMAP.md` for V2 ideas
   that are explicitly **not** committed.
-- Do **not** advertise auto-send, bulk-send, or scheduled-send. WaFlow
+- Do **not** advertise auto-send, bulk-send, or scheduled-send. LeadDock
   inserts text into the composer; the user always presses send.
 - Do **not** imply that buying the source grants rights beyond the tier
   purchased. The license is tier-scoped (see `LICENSE.md`).
@@ -211,10 +211,10 @@ To protect the product, the Chrome Web Store listing, and the buyer:
 
 Include this notice, verbatim, on every public-facing sales surface:
 
-> WaFlow is an independent productivity extension for WhatsApp Web. It is not
+> LeadDock is an independent productivity extension for WhatsApp Web. It is not
 > affiliated with or endorsed by WhatsApp or Meta. "WhatsApp" and "WhatsApp
 > Web" are used descriptively to identify the application the extension
 > interoperates with.
 
-If you rebrand, the notice must still appear. Replace "WaFlow" with your
+If you rebrand, the notice must still appear. Replace "LeadDock" with your
 brand name, but keep the substance of the claim.

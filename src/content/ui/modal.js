@@ -118,7 +118,7 @@ export function close(id) {
     try {
       entry.onClose();
     } catch (err) {
-      console.warn("[waflow:modal] onClose threw", err);
+      console.warn("[leaddock:modal] onClose threw", err);
     }
   }
 }

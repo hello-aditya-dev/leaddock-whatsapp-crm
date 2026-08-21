@@ -1,5 +1,5 @@
 /**
- * ui/styles.css — WaFlow panel + components design system.
+ * ui/styles.css — LeadDock panel + components design system.
  *
  * Loaded as a web_accessible_resource and injected into the CRM shadow root
  * by main.js. Scoped via :host so it never affects WhatsApp's own styles.
@@ -390,6 +390,36 @@
   align-self: center;
 }
 .wf-reply-launcher:hover { background: var(--wf-primary-hover); }
+
+/* ---- Activity timeline ---- */
+.wf-activity { display: flex; flex-direction: column; gap: 6px; }
+.wf-activity__item {
+  border-left: 2px solid var(--wf-border-strong);
+  padding: 6px 10px;
+  background: var(--wf-bg-elev);
+  border-radius: 0 var(--wf-radius-sm) var(--wf-radius-sm) 0;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.wf-activity__head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.wf-activity__type { font-size: 12px; font-weight: 600; color: var(--wf-text); }
+.wf-activity__at { font-size: 10px; color: var(--wf-text-muted); }
+.wf-activity__label { font-size: 12px; color: var(--wf-primary); font-weight: 500; }
+.wf-activity__detail { font-size: 11px; color: var(--wf-text-muted); white-space: pre-wrap; word-break: break-word; }
+
+/* ---- Diagnostics ---- */
+.wf-diag { display: flex; flex-direction: column; gap: 6px; }
+.wf-diag__row {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px;
+  padding: 6px 8px; background: var(--wf-bg-elev); border-radius: var(--wf-radius-sm);
+  font-size: 12px;
+}
+.wf-diag__label { font-weight: 600; }
+.wf-diag__status { font-weight: 800; font-size: 14px; text-align: center; }
+.wf-diag__status--ok { color: var(--wf-success); }
+.wf-diag__status--bad { color: var(--wf-danger); }
+.wf-diag__detail { color: var(--wf-text-muted); text-align: right; }
+.wf-diag__support { margin-top: 10px; }
+.wf-diag__support a { color: var(--wf-primary); }
 
 /* ---- Responsive: collapse on narrow viewports ---- */
 @media (max-width: 900px) {

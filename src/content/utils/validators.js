@@ -129,8 +129,8 @@ export function validateFollowUp(f) {
 /** Validate a full backup payload. Returns {ok, errors, value: normalizedPayload}. */
 export function validateBackup(payload) {
   if (!payload || typeof payload !== "object") return fail("Backup must be a JSON object");
-  if (!payload.app || payload.app !== "waflow") {
-    return fail("Not a WaFlow backup (missing app=waflow marker)");
+  if (!payload.app || payload.app !== "leaddock") {
+    return fail("Not a LeadDock backup (missing app=leaddock marker)");
   }
   const version = Number(payload.version);
   if (!Number.isFinite(version) || version < 1) {
@@ -143,7 +143,7 @@ export function validateBackup(payload) {
       return fail(`Backup collection '${key}' must be an object/map`);
     }
   }
-  return ok({ app: "waflow", version, exportedAt: payload.exportedAt || new Date().toISOString(), data });
+  return ok({ app: "leaddock", version, exportedAt: payload.exportedAt || new Date().toISOString(), data });
 }
 
 /** Validate an email-ish string loosely. */

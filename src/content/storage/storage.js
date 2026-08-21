@@ -13,6 +13,14 @@ import { STORAGE_KEY, SCHEMA_VERSION, createEmptyDb } from "./schema.js";
 import { migrate } from "./migrations.js";
 
 /**
+ * Legacy storage keys. If a user upgrades from a previous product identity
+ * (the pre-rebrand "WaFlow" build), we migrate their data into the new
+ * LeadDock key on first load so no CRM records are lost. We then remove the
+ * legacy key to avoid double-storage.
+ */
+const LEGACY_KEYS = ["waflow.db.v1"];
+
+/**
  * Backend abstraction. The real chrome.storage.local is used when available;
  * otherwise an in-memory map is used (tests + non-extension contexts).
  */
@@ -69,7 +77,7 @@ function notify(db) {
     try {
       fn(db);
     } catch (err) {
-      console.warn("[waflow:storage] subscriber threw", err);
+      console.warn("[leaddock:storage] subscriber threw", err);
     }
   }
 }
@@ -86,8 +94,28 @@ export async function load() {
   if (loadingPromise) return loadingPromise;
   loadingPromise = (async () => {
     try {
-      const res = await backend.get(STORAGE_KEY);
-      const raw = res && res[STORAGE_KEY];
+      let res = await backend.get(STORAGE_KEY);
+      let raw = res && res[STORAGE_KEY];
+      // Legacy key migration: if the new key is empty but a legacy key has
+      // data (from the pre-rebrand "WaFlow" build), adopt it verbatim.
+      if (!raw) {
+        for (const legacyKey of LEGACY_KEYS) {
+          const legacy = await backend.get(legacyKey);
+          if (legacy && legacy[legacyKey]) {
+            raw = legacy[legacyKey];
+            // Persist under the new key, then best-effort remove the legacy key.
+            try {
+              await backend.set({ [STORAGE_KEY]: raw });
+              if (typeof chrome !== "undefined" && chrome.storage && chrome.storage.local) {
+                chrome.storage.local.remove(legacyKey);
+              }
+            } catch (e) {
+              // non-fatal — data is already adopted under the new key.
+            }
+            break;
+          }
+        }
+      }
       const db = migrate(raw || null);
       // Ensure key collections exist defensively.
       db.contacts = db.contacts || {};
@@ -96,6 +124,7 @@ export async function load() {
       db.tags = db.tags || {};
       db.statuses = db.statuses || {};
       db.followUps = db.followUps || {};
+      db.activity = db.activity || {};
       db.settings = db.settings || {};
       db.meta = db.meta || {};
       db.meta.lastSeenAt = new Date().toISOString();
@@ -108,7 +137,7 @@ export async function load() {
       }
       return db;
     } catch (err) {
-      console.warn("[waflow:storage] load failed, using empty db", err);
+      console.warn("[leaddock:storage] load failed, using empty db", err);
       cache = createEmptyDb();
       return cache;
     } finally {

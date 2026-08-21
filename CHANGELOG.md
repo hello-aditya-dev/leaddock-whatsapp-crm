@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to WaFlow are documented in this file.
+All notable changes to LeadDock are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -13,7 +13,7 @@ _No unreleased changes yet._
 
 ### Added — Initial stable release
 
-This is the first stable, commercially distributed version of WaFlow. It ships
+This is the first stable, commercially distributed version of LeadDock. It ships
 the complete v1 feature set, the four-tier commercial license, and the full
 documentation suite.
 
@@ -41,7 +41,7 @@ documentation suite.
 - Slash-shortcut insertion (e.g. `/price`).
 - Keyboard navigation in the reply picker.
 - `⚡ Replies` launcher near the composer.
-- User always confirms and sends manually — WaFlow never auto-sends.
+- User always confirms and sends manually — LeadDock never auto-sends.
 
 **Template variables**
 - `{{name}}`, `{{phone}}`, `{{company}}`, `{{product}}` substitution at
@@ -133,7 +133,7 @@ documentation suite.
 
 ### Independence notice
 
-WaFlow is an independent productivity extension for WhatsApp Web. It is not
+LeadDock is an independent productivity extension for WhatsApp Web. It is not
 affiliated with or endorsed by WhatsApp or Meta.
 
 ## [0.1.0] — 2025-11-01
@@ -142,10 +142,10 @@ affiliated with or endorsed by WhatsApp or Meta.
 
 - Project bootstrap with `manifest.json`, `package.json`, brand config.
 - Canonical product spec, data schema, and demo fixtures captured.
-- Directory structure scaffolded under `waflow/`.
+- Directory structure scaffolded under `leaddock/`.
 - Initial adapter and storage layer stubs.
 - Worklog initialized at `/home/z/my-project/worklog.md`.
 
-[Unreleased]: https://github.com/witejackel-eng/waflow-whatsapp-crm/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/witejackel-eng/waflow-whatsapp-crm/releases/tag/v1.0.0
-[0.1.0]: https://github.com/witejackel-eng/waflow-whatsapp-crm/releases/tag/v0.1.0
+[Unreleased]: https://github.com/witejackel-eng/leaddock-whatsapp-crm/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/witejackel-eng/leaddock-whatsapp-crm/releases/tag/v1.0.0
+[0.1.0]: https://github.com/witejackel-eng/leaddock-whatsapp-crm/releases/tag/v0.1.0

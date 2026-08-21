@@ -1,17 +1,17 @@
-# WaFlow Roadmap
+# LeadDock Roadmap
 
 This document describes what is shipped (V1) and what is being explored for V2.
 V2 items are **exploration, not commitment** — they may or may not ship, in
 this order, or at all.
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
 
 ---
 
 ## V1 — Current shipped scope
 
-WaFlow **v1.0.0** is the initial stable release. It ships the complete feature
+LeadDock **v1.0.0** is the initial stable release. It ships the complete feature
 set described in `README.md` and `CHANGELOG.md`:
 
 - Lead statuses (New Lead, Contacted, Interested, Follow Up, Qualified, Won,
@@ -106,7 +106,7 @@ integrated service.
 
 - A public adapter contract so third-party developers can build adapters for
   other chat products (e.g., Telegram Web, Signal Desktop) without forking
-  WaFlow's CRM core.
+  LeadDock's CRM core.
 - Documentation, type definitions, and a reference implementation.
 
 V1's adapter is internal to `src/content/whatsapp/`. V2 could formalize the
@@ -145,12 +145,12 @@ not ship.
 ## How to influence the roadmap
 
 - Open a GitHub issue at
-  <https://github.com/witejackel-eng/waflow-whatsapp-crm/issues> with the
+  <https://github.com/witejackel-eng/leaddock-whatsapp-crm/issues> with the
   `roadmap` label.
 - Describe the use case, not just the feature request. A clear use case helps
   us evaluate whether the feature fits the local-first, no-auto-send
   constraints.
 - Upvotes (GitHub reactions) help us prioritize among candidate ideas.
 
-We do not commit to timelines. We do commit to keeping WaFlow independent,
+We do not commit to timelines. We do commit to keeping LeadDock independent,
 local-first by default, and respectful of the user's data.

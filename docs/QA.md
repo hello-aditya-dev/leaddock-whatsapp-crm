@@ -1,6 +1,6 @@
-# WaFlow QA Plan
+# LeadDock QA Plan
 
-This is the complete quality-assurance plan for WaFlow v1.0.0. It covers:
+This is the complete quality-assurance plan for LeadDock v1.0.0. It covers:
 
 1. The manual QA matrix against the real WhatsApp Web environment.
 2. A synthetic-data stress test (large CRM datasets, export/import round trips).
@@ -9,7 +9,7 @@ This is the complete quality-assurance plan for WaFlow v1.0.0. It covers:
 5. The release checklist (a brief reference; the canonical release checklist
    lives in `docs/LAUNCH-CHECKLIST.md`).
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
 
 ---
@@ -83,7 +83,7 @@ features:
 
 ## 3. Synthetic data stress test
 
-These tests exercise WaFlow with large datasets to confirm it stays
+These tests exercise LeadDock with large datasets to confirm it stays
 responsive and that round-trips are lossless.
 
 ### 3.1 Dataset
@@ -215,8 +215,8 @@ any item fails, the release is blocked.
 
 ### 5.6 Release artifacts
 
-- [ ] `release/waflow-extension-vX.Y.Z.zip` builds cleanly.
-- [ ] `release/waflow-source-vX.Y.Z.zip` builds cleanly (excludes
+- [ ] `release/leaddock-extension-vX.Y.Z.zip` builds cleanly.
+- [ ] `release/leaddock-source-vX.Y.Z.zip` builds cleanly (excludes
   `node_modules`, `.git`, `tests/`, OS files).
 - [ ] ZIP loads as an unpacked extension in a clean Chrome profile.
 - [ ] Version in `manifest.json` matches `brand.version` and the ZIP filename.

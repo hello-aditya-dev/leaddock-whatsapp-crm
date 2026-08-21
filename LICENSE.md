@@ -1,9 +1,9 @@
-# WaFlow Commercial License
+# LeadDock Commercial License
 
 **Version:** 1.0.0
 **Effective date:** 2026-01-01
 **Licensor:** witejackel-eng ("Licensor")
-**Product:** WaFlow — WhatsApp Web Sales Workspace (the "Software")
+**Product:** LeadDock — WhatsApp Web CRM (the "Software")
 
 > **This is a starting template, not legal advice.** It is intended as a
 > commercially useful starting point that buyers and resellers can adapt to
@@ -12,7 +12,7 @@
 > file creates a lawyer-client relationship. The Licensor makes no
 > representation that this template is sufficient for your specific situation.
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with, made by, sponsored by, or endorsed
 > by WhatsApp or Meta. "WhatsApp" and "WhatsApp Web" are used descriptively to
 > identify the application the Software interoperates with.
@@ -32,14 +32,14 @@ applicable law.
 
 ## 2. Definitions
 
-- **"Software"** means the WaFlow extension source code, build scripts, fixtures,
+- **"Software"** means the LeadDock extension source code, build scripts, fixtures,
   documentation, and assets as delivered.
 - **"End Product"** means a built, functional Chrome extension derived from the
   Software, branded or unbranded, that an end user can install and use.
 - **"Seat"** means one natural person using the Software for development or
   end-use.
 - **"Branded"** means an End Product whose name, logo, accent color, and
-  marketing copy have been changed from the default WaFlow identity.
+  marketing copy have been changed from the default LeadDock identity.
 - **"Source"** means the human-readable JavaScript, HTML, CSS, JSON, and
   Markdown files of the Software.
 - **"Binary"** means a packaged, installable Chrome extension (`.zip` or unpacked
@@ -64,7 +64,7 @@ applicable law.
 
 ### 3.2 Commercial — $59
 
-- **Intended use:** A single organization using WaFlow internally for its own
+- **Intended use:** A single organization using LeadDock internally for its own
   sales / customer workflow.
 - **Grant:** The Licensee may install, use, and modify the Software internally
   and ship **one (1) Branded End Product** for use within the Licensee's own
@@ -82,7 +82,7 @@ applicable law.
     download, SaaS, or installable product to non-Licensee customers).
   - Removing or altering this License, the independence notice, or the privacy
     policy.
-  - Using the WaFlow name or identity to imply affiliation with WhatsApp/Meta.
+  - Using the LeadDock name or identity to imply affiliation with WhatsApp/Meta.
 
 ### 3.3 Agency — $99
 
@@ -104,40 +104,50 @@ applicable law.
     to Extended Reseller.
   - Reselling the Source or the Software as a standalone product (e.g., as a
     competing developer kit).
-  - Using the WaFlow name or identity to imply affiliation with WhatsApp/Meta.
+  - Using the LeadDock name or identity to imply affiliation with WhatsApp/Meta.
 
-### 3.4 Extended Reseller — $149
+### 3.4 Advanced — $149
 
-- **Intended use:** A reseller or white-label SaaS business that wants to
-  distribute WaFlow under its own brand.
+- **Intended use:** A reseller, agency, or white-label business that wants the
+  widest latitude to deploy branded end products at scale.
 - **Grant:** The Licensee may produce and distribute an unlimited number of
-  Branded End Products and may resell the Software (Source and/or Binary) under
-  its own brand, with the following conditions.
+  Branded End Products under its own brand.
 - **Permitted:**
   - White-labeling the Software end-to-end (name, logo, colors, links, copy).
-  - Reselling the Binary to end users.
-  - Reselling the Source to other developers under the Licensee's own brand and
-    pricing, provided the Licensee attaches a license at least as restrictive as
-    this Commercial tier to downstream recipients.
-  - Modifying, extending, or rebranding the Software without limit.
+  - Deploying the Binary to an unlimited number of end users / clients.
+  - Modifying, extending, or rebranding the Software without limit for the
+    purpose of producing Branded End Products.
+- **NOT Permitted (important):**
+  - **Reselling or redistributing the Source Code** as a standalone product,
+    competing developer kit, template, or resale asset. The Advanced tier grants
+    unlimited *branded end-product deployment*, not unlimited *source resale*.
+  - Disclosing the Source to end users / clients except as compiled into a
+    Branded End Product they receive as a Binary.
+  - Using the "LeadDock" name or the Licensor's identity to imply endorsement.
 - **Conditions:**
   - The Licensee must not represent that the Software is affiliated with or
     endorsed by WhatsApp or Meta.
-  - The Licensee must not use the "WaFlow" name or the Licensor's identity to
+  - The Licensee must not use the "LeadDock" name or the Licensor's identity to
     imply endorsement by the Licensor of the Licensee's products.
   - The Licensee remains solely responsible for end-user support, refunds, and
     compliance for the products it distributes.
   - This License, the independence notice, and the privacy policy must travel
-    with any redistribution of the Source.
+    with any redistribution of the Source (where Source is redistributed at all
+    under the limited exceptions above).
+
+> **Plain-language note:** The Advanced tier is deliberately scoped to protect
+> the underlying Source from becoming a commodity resale asset. If you need to
+> resell the Source itself, contact the Licensor for a separate Source Resale
+> License.
 
 ### 3.5 Tier summary
 
-| Tier              | Price | Seats / End Products            | Source modification | Binary redistribution | Source resale |
-| ----------------- | ----- | ------------------------------- | -------------------- | ---------------------- | ------------- |
-| Personal          | $29   | 1 seat, personal use only       | No                  | No                     | No            |
-| Commercial        | $59   | 1 End Product (internal)        | Yes                 | Internal only          | No            |
-| Agency            | $99   | Up to 5 client End Products     | Yes                 | Yes, Binary to clients| No            |
-| Extended Reseller | $149  | Unlimited                       | Yes                 | Yes, unlimited         | Yes           |
+| Tier              | Price | Seats / End Products            | Source modification | Binary redistribution     | Source resale |
+| ----------------- | ----- | ------------------------------- | -------------------- | ------------------------- | ------------- |
+| Personal          | $29   | 1 seat, personal use only       | No                  | No                        | No            |
+| Commercial        | $59   | 1 End Product (internal)        | Yes                 | Internal only             | No            |
+| Agency            | $99   | Up to 5 client End Products     | Yes                 | Yes, Binary to clients    | No            |
+| Advanced          | $149  | Unlimited Branded End Products  | Yes                 | Yes, unlimited Branded    | No            |
 
 ## 4. Ownership
 
@@ -203,7 +213,7 @@ of written notice.
 
 ## 10. Trademarks
 
-"WaFlow" and the WaFlow logo are trademarks of the Licensor. WhatsApp and
+"LeadDock" and the LeadDock logo are trademarks of the Licensor. WhatsApp and
 WhatsApp Web are trademarks of Meta Platforms, Inc. The Licensor claims no
 rights in WhatsApp or Meta trademarks. Use of WhatsApp Web by the Software is
 descriptive and interoperational only.
@@ -244,4 +254,4 @@ business model, or jurisdiction.
 
 **Contact:** For license questions, tier upgrades, or commercial inquiries, see
 the `supportEmail` value in `src/config/brand.js` or open an issue at
-<https://github.com/witejackel-eng/waflow-whatsapp-crm>.
+<https://github.com/witejackel-eng/leaddock-whatsapp-crm>.

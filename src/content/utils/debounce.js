@@ -20,7 +20,7 @@ export function debounce(fn, wait = 200, opts = {}) {
       fn(...args);
     } catch (err) {
       // Never let a debounced handler crash the observer pipeline.
-      console.warn("[waflow:debounce] handler threw", err);
+      console.warn("[leaddock:debounce] handler threw", err);
     }
   }
 
@@ -76,7 +76,7 @@ export function throttle(fn, wait = 200) {
       try {
         fn(...args);
       } catch (err) {
-        console.warn("[waflow:throttle] handler threw", err);
+        console.warn("[leaddock:throttle] handler threw", err);
       }
     } else {
       pendingArgs = args;
@@ -88,7 +88,7 @@ export function throttle(fn, wait = 200) {
             try {
               fn(...pendingArgs);
             } catch (err) {
-              console.warn("[waflow:throttle] handler threw", err);
+              console.warn("[leaddock:throttle] handler threw", err);
             }
             pendingArgs = null;
           }

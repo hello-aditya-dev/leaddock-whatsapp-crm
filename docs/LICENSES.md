@@ -1,4 +1,4 @@
-# WaFlow License Tiers (Plain-Language Guide)
+# LeadDock License Tiers (Plain-Language Guide)
 
 This is a companion to `LICENSE.md`. It explains, in plain language, what each
 of the four license tiers permits and forbids, how to choose, how to upgrade,
@@ -9,7 +9,7 @@ and answers common questions.
 > governs. **Review `LICENSE.md` with a lawyer** before relying on it for any
 > commercial transaction.
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
 
 ---
@@ -18,7 +18,7 @@ and answers common questions.
 
 | Tier                | Price | One sentence                                                                                       |
 | ------------------- | ----- | -------------------------------------------------------------------------------------------------- |
-| Personal            | $29   | Use WaFlow for your own WhatsApp Web leads; do not resell, redistribute, or rebrand.               |
+| Personal            | $29   | Use LeadDock for your own WhatsApp Web leads; do not resell, redistribute, or rebrand.               |
 | Commercial          | $59   | Modify the source and ship one branded End Product inside your organization.                       |
 | Agency              | $99   | Deliver up to 5 branded End Products to clients; clients get the binary, not the source.           |
 | Extended Reseller   | $149  | Full white-label + resell rights. Resell the source or the binary under your brand, unlimited.     |
@@ -27,7 +27,7 @@ and answers common questions.
 
 ### Permitted
 
-- Install and use the built WaFlow extension on your own browser.
+- Install and use the built LeadDock extension on your own browser.
 - Use all v1 features for personal WhatsApp Web lead management.
 - Export JSON / CSV backups of your own CRM data.
 - Move the install to a new computer (uninstall from the old one).
@@ -68,8 +68,8 @@ conversations and do not need to rebrand or resell.
 
 ### Best for
 
-A single business that wants to use WaFlow internally, with its own brand on
-the extension. The business does not resell WaFlow.
+A single business that wants to use LeadDock internally, with its own brand on
+the extension. The business does not resell LeadDock.
 
 ## 4. Agency — $99
 
@@ -110,7 +110,7 @@ solutions to a handful of clients.
 
 - Must not represent the Software as affiliated with or endorsed by WhatsApp
   or Meta.
-- Must not use the "WaFlow" name or the Licensor's identity to imply
+- Must not use the "LeadDock" name or the Licensor's identity to imply
   endorsement of the Licensee's products.
 - The Licensee is solely responsible for end-user support, refunds, and
   compliance for products it distributes.
@@ -120,17 +120,17 @@ solutions to a handful of clients.
 ### Best for
 
 Resellers, SaaS businesses, and white-label agencies that want to distribute
-WaFlow under their own brand as a product or developer kit.
+LeadDock under their own brand as a product or developer kit.
 
 ## 6. How to choose
 
 | If you want to…                                                            | Choose               |
 | -------------------------------------------------------------------------- | -------------------- |
-| Use WaFlow for your own leads, nothing more                                | Personal            |
-| Rebrand WaFlow for your own company                                         | Commercial           |
-| Deliver WaFlow (built) to a small number of clients                         | Agency               |
-| Resell WaFlow under your own brand, as source or binary, without limit      | Extended Reseller    |
-| Sell a SaaS product that wraps WaFlow's source                              | Extended Reseller    |
+| Use LeadDock for your own leads, nothing more                                | Personal            |
+| Rebrand LeadDock for your own company                                         | Commercial           |
+| Deliver LeadDock (built) to a small number of clients                         | Agency               |
+| Resell LeadDock under your own brand, as source or binary, without limit      | Extended Reseller    |
+| Sell a SaaS product that wraps LeadDock's source                              | Extended Reseller    |
 
 ## 7. Upgrade path
 
@@ -150,7 +150,7 @@ rights already granted for the period you held the higher tier.
 
 ## 8. FAQ
 
-### Can I use WaFlow on more than one computer?
+### Can I use LeadDock on more than one computer?
 
 - **Personal:** Yes, for your own use. Uninstall from the old computer first.
 - **Commercial:** Yes, within your organization, up to a reasonable seat count.
@@ -174,7 +174,7 @@ rights already granted for the period you held the higher tier.
 
 ### Can I remove the independence notice?
 
-No. The independence notice (stating WaFlow is not affiliated with WhatsApp or
+No. The independence notice (stating LeadDock is not affiliated with WhatsApp or
 Meta) must travel with the product, the source, and the documentation in all
 tiers. Removing it is a license violation and a Chrome Web Store policy risk.
 
@@ -191,9 +191,9 @@ See `docs/SELLING.md` §6.2 for the refund policy. The short version: refunds
 are available within 7 days if the source has not been downloaded (for tiers
 that ship source).
 
-### Can I claim WaFlow is "WhatsApp-approved"?
+### Can I claim LeadDock is "WhatsApp-approved"?
 
-No. WaFlow is not approved, certified, or endorsed by WhatsApp or Meta. Do
+No. LeadDock is not approved, certified, or endorsed by WhatsApp or Meta. Do
 not make such claims in any sales surface, product listing, or
 in-product copy.
 
@@ -214,4 +214,4 @@ license and your intended use. Common adjustments:
 - Adjusting the limitation-of-liability cap to match your commercial
   insurance coverage.
 - Adding specific clauses for SaaS distribution (Extended Reseller) if you
-  plan to operate WaFlow as a hosted product rather than a downloaded one.
+  plan to operate LeadDock as a hosted product rather than a downloaded one.

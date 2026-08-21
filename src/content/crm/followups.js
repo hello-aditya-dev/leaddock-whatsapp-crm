@@ -8,6 +8,7 @@ import { uid } from "../utils/ids.js";
 import { nowIso, dueState, addDays, fromDateInputValue, toDateInputValue } from "../utils/dates.js";
 import { validateFollowUp } from "../utils/validators.js";
 import * as contacts from "./contacts.js";
+import * as activity from "./activity.js";
 
 export const PRESETS = [
   { id: "today", label: "Today", days: 0 },
@@ -52,6 +53,11 @@ export async function setForContact(contactId, isoDate, note = "") {
     c.updatedAt = nowIso();
   }
   await storage.save(db);
+  try {
+    await activity.record(contactId, isoDate ? "followup_set" : "followup_cleared", {
+      label: isoDate ? new Date(isoDate).toLocaleDateString() : "cleared",
+    });
+  } catch (e) {}
   return isoDate ? db.followUps[Object.keys(db.followUps).find((k) => db.followUps[k].contactId === contactId)] : null;
 }
 

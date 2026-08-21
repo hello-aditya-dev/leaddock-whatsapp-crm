@@ -33,11 +33,11 @@ chrome.action.onClicked.addListener(async () => {
 // Relay messages between extension pages and the active WhatsApp Web tab.
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (!msg || !msg.type) return;
-  if (msg.type === "waflow:open-whatsapp") {
+  if (msg.type === "leaddock:open-whatsapp") {
     getOrCreateWhatsAppTab().then(() => sendResponse({ ok: true }));
     return true;
   }
-  if (msg.type === "waflow:relay-to-content") {
+  if (msg.type === "leaddock:relay-to-content") {
     (async () => {
       try {
         const [tab] = await chrome.tabs.query({ url: WHATSAPP_URL + "*", active: true });
@@ -62,5 +62,5 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
 
 // On install: no special action — content script auto-seeds demo data on first run.
 chrome.runtime.onInstalled.addListener((details) => {
-  console.info(`[WaFlow] ${details.reason} (v${chrome.runtime.getManifest().version})`);
+  console.info(`[LeadDock] ${details.reason} (v${chrome.runtime.getManifest().version})`);
 });

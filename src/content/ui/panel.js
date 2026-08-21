@@ -2,7 +2,7 @@
  * ui/panel.js — the CRM side panel injected beside WhatsApp Web's open chat.
  *
  * Mounts inside a Shadow DOM so WhatsApp's global styles never leak in (and
- * WaFlow's styles never leak out). Collapsible; remembers collapsed state.
+ * LeadDock's styles never leak out). Collapsible; remembers collapsed state.
  * Subscribes to storage changes and re-renders efficiently.
  *
  * The panel never reaches into WhatsApp DOM directly — it uses the adapter.
@@ -17,6 +17,7 @@ import * as followups from "../crm/followups.js";
 import * as fields from "../crm/fields.js";
 import * as replies from "../replies/manager.js";
 import * as adapter from "../whatsapp/adapter.js";
+import * as activity from "../crm/activity.js";
 import { formatDate, formatDateTime, toDateInputValue, fromDateInputValue, dueState, relativeLabel } from "../utils/dates.js";
 import * as toast from "./toast.js";
 import * as modal from "./modal.js";
@@ -41,7 +42,7 @@ let state = {
 export function mount() {
   if (root && document.body.contains(root)) return root;
   root = document.createElement("div");
-  root.id = "waflow-root";
+  root.id = "leaddock-root";
   root.className = "wf-root";
   shadow = root.attachShadow ? root.attachShadow({ mode: "open" }) : root;
   document.body.appendChild(root);
@@ -109,7 +110,7 @@ export async function setCurrentContact(waContext) {
     const c = await contacts.resolveOrCreate({ name: waContext.name, phone: waContext.phone });
     state.currentContact = c;
   } catch (err) {
-    console.warn("[waflow:panel] resolveOrCreate failed", err);
+    console.warn("[leaddock:panel] resolveOrCreate failed", err);
     state.currentContact = null;
   }
   render();
@@ -164,10 +165,10 @@ function buildPanel() {
   // Header
   const head = makeEl("header", { class: "wf-panel__head" });
   const titleWrap = makeEl("div", { class: "wf-panel__title-wrap" });
-  const logo = makeEl("div", { class: "wf-panel__logo", text: b.shortName || "WF", title: b.name || "WaFlow" });
+  const logo = makeEl("div", { class: "wf-panel__logo", text: b.shortName || "LD", title: b.name || "LeadDock" });
   titleWrap.appendChild(logo);
   const titleText = makeEl("div", { class: "wf-panel__title" });
-  titleText.appendChild(makeEl("div", { class: "wf-panel__name", text: b.name || "WaFlow" }));
+  titleText.appendChild(makeEl("div", { class: "wf-panel__name", text: b.name || "LeadDock" }));
   titleText.appendChild(makeEl("div", { class: "wf-panel__sub", text: b.tagline || "CRM" }));
   titleWrap.appendChild(titleText);
   head.appendChild(titleWrap);
@@ -200,8 +201,8 @@ function buildPanel() {
     const expand = makeEl("button", {
       class: "wf-panel__expand",
       type: "button",
-      title: "Open WaFlow panel",
-      text: b.shortName || "WF",
+      title: "Open LeadDock panel",
+      text: b.shortName || "LD",
     });
     expand.addEventListener("click", toggleCollapsed);
     wrap.appendChild(expand);
@@ -229,7 +230,7 @@ function buildPanel() {
     body.appendChild(
       EmptyState(
         "Group chat",
-        "WaFlow focuses on individual leads. Group chats are shown for reference only."
+        "LeadDock focuses on individual leads. Group chats are shown for reference only."
       )
     );
     wrap.appendChild(body);
@@ -257,6 +258,12 @@ function buildPanel() {
 
   // Notes
   body.appendChild(buildNotesSection(c));
+
+  // Activity timeline (newest-first)
+  body.appendChild(buildActivitySection(c));
+
+  // Diagnostics quick-link (opens full diagnostics modal)
+  body.appendChild(buildDiagnosticsLink());
 
   // Footer: brand + independence notice
   const foot = makeEl("footer", { class: "wf-panel__foot" });
@@ -546,6 +553,91 @@ function openTagManager() {
   }});
   wrap.appendChild(addBtn);
   modal.open({ title: "Manage tags", content: wrap, actions: [{ label: "Close", variant: "ghost" }] });
+}
+
+// Activity timeline section — newest-first list of events for this contact.
+function buildActivitySection(c) {
+  const sec = makeEl("section", { class: "wf-section" });
+  sec.appendChild(SectionHeading("Activity"));
+  const list = makeEl("div", { class: "wf-activity" });
+  activity.listForContact(c.id, 20).then((items) => {
+    if (items.length === 0) {
+      list.appendChild(makeEl("p", { class: "wf-muted", text: "No activity yet." }));
+      return;
+    }
+    items.forEach((a) => {
+      const item = makeEl("div", { class: "wf-activity__item" });
+      const label = activity.labelFor(a.type);
+      const head = makeEl("div", { class: "wf-activity__head" });
+      head.appendChild(makeEl("span", { class: "wf-activity__type", text: label }));
+      head.appendChild(makeEl("span", { class: "wf-activity__at", text: formatDateTime(a.at) }));
+      item.appendChild(head);
+      if (a.label) item.appendChild(makeEl("div", { class: "wf-activity__label", text: mask(a.label) }));
+      if (a.detail) item.appendChild(makeEl("div", { class: "wf-activity__detail", text: mask(a.detail) }));
+      list.appendChild(item);
+    });
+  });
+  sec.appendChild(list);
+  return sec;
+}
+
+// Diagnostics quick-link button (opens a full diagnostics modal).
+function buildDiagnosticsLink() {
+  const sec = makeEl("section", { class: "wf-section" });
+  sec.appendChild(
+    Button("Diagnostics", {
+      variant: "ghost",
+      onClick: () => openDiagnostics(),
+    })
+  );
+  return sec;
+}
+
+// Full diagnostics modal — surfaces adapter/storage/version/support health.
+async function openDiagnostics() {
+  const wrap = makeEl("div", { class: "wf-form" });
+  const grid = makeEl("div", { class: "wf-diag" });
+  const diag = adapter.diagnostics();
+  const db = await storage.load();
+
+  function row(label, ok, detail) {
+    const r = makeEl("div", { class: "wf-diag__row" });
+    r.appendChild(makeEl("span", { class: "wf-diag__label", text: label }));
+    const status = makeEl("span", {
+      class: "wf-diag__status " + (ok ? "wf-diag__status--ok" : "wf-diag__status--bad"),
+      text: ok ? "✓" : "✗",
+    });
+    r.appendChild(status);
+    if (detail) r.appendChild(makeEl("span", { class: "wf-diag__detail", text: detail }));
+    grid.appendChild(r);
+  }
+
+  row("LeadDock version", true, brand.version);
+  row("WhatsApp Web", diag.ready === "ok" || diag.ready === true, diag.ready ? "Detected" : "Not detected");
+  row("Active chat", diag.chatHeader === "ok", diag.chatHeader === "ok" ? "Detected" : "No active chat");
+  row("Contact", !!state.currentContact, state.currentContact ? "Detected" : "Not detected");
+  row("Composer", diag.composer === "ok", diag.composer === "ok" ? "Detected" : "Not detected");
+  row("CRM storage", !!db, storage.backendKind());
+  row("Adapter", diag.ready ? "Ready" : "Degraded", diag.ready ? "Ready" : "Selectors missing");
+  row("Total contacts", true, String(Object.keys(db.contacts || {}).length));
+  row("Total notes", true, String(Object.keys(db.notes || {}).length));
+  row("Total follow-ups", true, String(Object.keys(db.followUps || {}).length));
+
+  wrap.appendChild(grid);
+  const support = makeEl("div", { class: "wf-muted wf-diag__support" });
+  support.appendChild(makeEl("p", { text: "Need help? Email: " }));
+  const a = makeEl("a", {
+    href: "mailto:" + (brand.supportEmail || "witejackel@gmail.com"),
+    text: brand.supportEmail || "witejackel@gmail.com",
+  });
+  support.appendChild(a);
+  wrap.appendChild(support);
+
+  modal.open({
+    title: "LeadDock Diagnostics",
+    content: wrap,
+    actions: [{ label: "Close", variant: "ghost" }],
+  });
 }
 
 // privacy masking for text

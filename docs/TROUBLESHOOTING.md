@@ -4,20 +4,20 @@ Common issues and how to fix them. If a problem isn't covered here, check
 `docs/ARCHITECTURE.md` (for behavior) and `PRIVACY.md` / `SECURITY.md` (for
 data and security posture) before reaching out to support.
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
 
 ---
 
 ## 1. The CRM panel does not appear
 
-Symptoms: WaFlow is loaded in `chrome://extensions`, but no panel shows up
+Symptoms: LeadDock is loaded in `chrome://extensions`, but no panel shows up
 beside a WhatsApp Web chat.
 
 | Possible cause                                       | Fix                                                                              |
 | ---------------------------------------------------- | -------------------------------------------------------------------------------- |
 | WhatsApp Web tab was open before the extension loaded | Reload the `https://web.whatsapp.com/` tab.                                     |
-| Extension is disabled                                 | Toggle the WaFlow card on in `chrome://extensions`.                              |
+| Extension is disabled                                 | Toggle the LeadDock card on in `chrome://extensions`.                              |
 | `host_permissions` does not match                    | Confirm `manifest.json` lists `"https://web.whatsapp.com/*"`. Reload extension. |
 | Wrong folder loaded                                  | Confirm the loaded folder contains `manifest.json` at its root.                  |
 | No chat is selected                                   | Open a 1:1 chat in WhatsApp Web; the panel only renders when a chat is active.  |
@@ -25,7 +25,7 @@ beside a WhatsApp Web chat.
 
 ## 2. WhatsApp UI changed (selectors are stale)
 
-WhatsApp Web updates its DOM periodically. WaFlow's adapter uses ordered
+WhatsApp Web updates its DOM periodically. LeadDock's adapter uses ordered
 selector fallback lists (see `docs/ARCHITECTURE.md` §2.3) to absorb small
 changes, but a major refactor can require selector updates.
 
@@ -85,15 +85,15 @@ Then reload the extension.
 Symptom: importing a JSON backup shows an error mentioning
 `schema version` or `migration`.
 
-- If the backup's `version` is **lower** than the current schema: WaFlow should
+- If the backup's `version` is **lower** than the current schema: LeadDock should
   run migrations automatically. If the migration fails, the importer reports
   the failing step — file a bug with the backup file (after redacting personal
   data).
 - If the backup's `version` is **higher** than the current schema: you are on
-  an older WaFlow version. Upgrade WaFlow to the matching version before
+  an older LeadDock version. Upgrade LeadDock to the matching version before
   restoring.
 - If the backup is **missing** the `version` field entirely: it is not a
-  WaFlow backup. Reconstruct via CSV import instead.
+  LeadDock backup. Reconstruct via CSV import instead.
 
 ### 4.2 Backup is not valid JSON
 
@@ -129,7 +129,7 @@ will be imported. Cancel if the warning count is high.
 
 ### 5.2 CSV header reference
 
-WaFlow's importer expects this header (case-insensitive):
+LeadDock's importer expects this header (case-insensitive):
 
 ```
 name,phone,company,email,product,budget,source,status,tags,notes,followUpDate
@@ -140,7 +140,7 @@ The `tags` column uses a pipe separator: `Hot|Wholesale`.
 ## 6. Storage quota
 
 `chrome.storage.local` has a quota (typically ~5 MB for unpacked / 10 MB for
-installed extensions in Chrome). WaFlow's records are small, but large
+installed extensions in Chrome). LeadDock's records are small, but large
 note volumes can add up.
 
 - Check the Options page → **Storage usage** indicator.
@@ -187,7 +187,7 @@ chat activity, an observer is misbehaving — file a bug.
 
 Symptom: A chat is open, but the panel says "No contact detected."
 
-| State on WhatsApp Web           | Expected WaFlow behavior                                   |
+| State on WhatsApp Web           | Expected LeadDock behavior                                   |
 | ------------------------------- | ---------------------------------------------------------- |
 | Logged out / QR screen           | Panel does not render; nothing to detect.                  |
 | Loading spinner                  | Panel waits; renders once the chat list resolves.         |
@@ -198,7 +198,7 @@ Symptom: A chat is open, but the panel says "No contact detected."
 | Contact with only phone (no name)| Phone is detected; name is null until you set one.          |
 | Long contact name with emoji     | Name is captured verbatim; UI truncates with ellipsis.    |
 
-If WaFlow still cannot detect a contact that you can see, switch on
+If LeadDock still cannot detect a contact that you can see, switch on
 Diagnostics mode (Options → Diagnostics) and review the captured selector
 state. The most common cause is a WhatsApp UI change (see §2).
 
@@ -216,7 +216,7 @@ state. The most common cause is a WhatsApp UI change (see §2).
 
 | Symptom                              | Likely cause                                       | Fix                                                              |
 | ------------------------------------ | -------------------------------------------------- | ---------------------------------------------------------------- |
-| `Ctrl/Cmd+K` does nothing            | Another extension or Chrome feature owns the combo | Open via the WaFlow toolbar icon → "Command palette", or remap. |
+| `Ctrl/Cmd+K` does nothing            | Another extension or Chrome feature owns the combo | Open via the LeadDock toolbar icon → "Command palette", or remap. |
 | Palette opens but commands are stale | Storage changed in another tab                      | Reload the WhatsApp tab.                                          |
 | Palette search shows no results      | Search index not built                              | Reload the tab; index builds on first open.                      |
 
@@ -232,11 +232,11 @@ When filing a bug:
 
 1. Reproduce with the **demo dataset** if possible (`npm run demo:reset`,
    then Options → Load demo data).
-2. Note the WaFlow version (Options page footer or `manifest.json`).
+2. Note the LeadDock version (Options page footer or `manifest.json`).
 3. Note the Chrome version and OS.
 4. Attach the Diagnostics output (Options → Diagnostics → Copy report).
 5. Describe the steps, the expected behavior, and the actual behavior.
 6. Redact any real customer data before sharing.
 
-Open issues at <https://github.com/witejackel-eng/waflow-whatsapp-crm/issues>.
+Open issues at <https://github.com/witejackel-eng/leaddock-whatsapp-crm/issues>.
 For security issues, see `SECURITY.md` §6.

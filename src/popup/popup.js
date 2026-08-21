@@ -1,5 +1,5 @@
 /**
- * popup/popup.js — WaFlow dashboard popup.
+ * popup/popup.js — LeadDock dashboard popup.
  *
  * Imports the shared storage + CRM modules directly (ESM is allowed in popup
  * pages). Builds a compact dashboard: total leads, status counts, due
@@ -14,8 +14,8 @@ import brand from "../config/brand.js";
 const el = (id) => document.getElementById(id);
 
 function render() {
-  el("wfLogo").textContent = brand.shortName || "WF";
-  el("wfName").textContent = brand.name || "WaFlow";
+  el("wfLogo").textContent = brand.shortName || "LD";
+  el("wfName").textContent = brand.name || "LeadDock";
   el("wfTag").textContent = brand.tagline || "CRM for WhatsApp Web";
   el("notice").textContent = brand.independenceNotice;
 
@@ -98,23 +98,23 @@ async function buildDashboard() {
 function openChat(contact) {
   if (!contact) return;
   // Ask the background to open WhatsApp and relay an "open chat" message.
-  chrome.runtime.sendMessage({ type: "waflow:relay-to-content", payload: { type: "waflow:open-chat", contact } }, () => {
+  chrome.runtime.sendMessage({ type: "leaddock:relay-to-content", payload: { type: "leaddock:open-chat", contact } }, () => {
     window.close();
   });
 }
 
 el("openWa").addEventListener("click", () => {
-  chrome.runtime.sendMessage({ type: "waflow:open-whatsapp" }, () => window.close());
+  chrome.runtime.sendMessage({ type: "leaddock:open-whatsapp" }, () => window.close());
 });
 
 el("exportCsv").addEventListener("click", async () => {
   const csv = await data.exportContactsCsv();
-  download("waflow-contacts.csv", csv, "text/csv");
+  download("leaddock-contacts.csv", csv, "text/csv");
 });
 
 el("exportBackup").addEventListener("click", async () => {
   const backup = await data.exportBackup();
-  download("waflow-backup.json", JSON.stringify(backup, null, 2), "application/json");
+  download("leaddock-backup.json", JSON.stringify(backup, null, 2), "application/json");
 });
 
 el("loadDemo").addEventListener("click", async () => {

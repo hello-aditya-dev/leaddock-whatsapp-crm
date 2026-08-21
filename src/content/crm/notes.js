@@ -6,6 +6,7 @@ import { uid } from "../utils/ids.js";
 import { nowIso } from "../utils/dates.js";
 import { validateNote } from "../utils/validators.js";
 import { stripUnsafeControlChars } from "../utils/sanitize.js";
+import * as activity from "./activity.js";
 
 export async function listForContact(contactId) {
   const db = await storage.load();
@@ -36,6 +37,7 @@ export async function create(contactId, text) {
     db.notes[note.id] = v.value;
     return db;
   });
+  try { await activity.record(contactId, "note_added", { detail: clean.slice(0, 80) }); } catch (e) {}
   return note;
 }
 
@@ -43,21 +45,27 @@ export async function update(id, text) {
   const clean = stripUnsafeControlChars(String(text || ""));
   if (!clean.trim()) throw new Error("Note text is required");
   let updated = null;
+  let contactId = null;
   await storage.update((db) => {
     const cur = db.notes[id];
     if (!cur) throw new Error("Note not found: " + id);
+    contactId = cur.contactId;
     updated = { ...cur, text: clean, updatedAt: nowIso() };
     db.notes[id] = updated;
     return db;
   });
+  try { if (contactId) await activity.record(contactId, "note_edited", { detail: clean.slice(0, 80) }); } catch (e) {}
   return updated;
 }
 
 export async function remove(id) {
+  let contactId = null;
   await storage.update((db) => {
+    if (db.notes[id]) contactId = db.notes[id].contactId;
     delete db.notes[id];
     return db;
   });
+  try { if (contactId) await activity.record(contactId, "note_deleted"); } catch (e) {}
   return true;
 }
 

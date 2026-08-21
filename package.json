@@ -1,14 +1,14 @@
 {
-  "name": "waflow-whatsapp-crm",
+  "name": "leaddock-whatsapp-crm",
   "version": "1.0.0",
-  "description": "WaFlow — Turn WhatsApp Web into a lightweight sales CRM. White-label Chrome extension (Manifest V3, local-first).",
+  "description": "LeadDock — Turn WhatsApp Web into a lightweight sales CRM. White-label Chrome extension (Manifest V3, local-first).",
   "private": true,
   "license": "SEE LICENSE IN LICENSE.md",
   "author": "witejackel-eng",
-  "homepage": "https://github.com/witejackel-eng/waflow-whatsapp-crm",
+  "homepage": "https://github.com/witejackel-eng/leaddock-whatsapp-crm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/witejackel-eng/waflow-whatsapp-crm.git"
+    "url": "https://github.com/witejackel-eng/leaddock-whatsapp-crm.git"
   },
   "type": "module",
   "scripts": {

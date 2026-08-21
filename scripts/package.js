@@ -2,14 +2,16 @@
  * scripts/package.js — produce release artifacts.
  *
  * Outputs:
- *   release/waflow-extension-v{VERSION}.zip   — load-unpacked-ready build of dist/
- *   release/waflow-source-v{VERSION}.zip      — full source (no node_modules/dist)
+ *   release/leaddock-extension-v{VERSION}.zip        — load-unpacked-ready build of dist/
+ *   release/leaddock-commercial-kit-v{VERSION}.zip   — full source kit (no node_modules/dist/release/.git)
+ *   release/checksums.txt                             — SHA-256 of both ZIPs
  *
  * Uses the system `zip` binary when available; falls back to a Node-only
  * store-mode zip writer otherwise.
  */
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, rmSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -55,13 +57,13 @@ function main() {
   rmSync(releaseDir, { recursive: true, force: true });
   mkdirSync(releaseDir, { recursive: true });
 
-  const extZip = path.join(releaseDir, `waflow-extension-v${version}.zip`);
+  const extZip = path.join(releaseDir, `leaddock-extension-v${version}.zip`);
   console.log(`[package] writing ${extZip}`);
   zipDir(path.join(root, "dist"), extZip);
 
-  const srcZip = path.join(releaseDir, `waflow-source-v${version}.zip`);
-  console.log(`[package] writing ${srcZip}`);
-  zipDir(root, srcZip, {
+  const kitZip = path.join(releaseDir, `leaddock-commercial-kit-v${version}.zip`);
+  console.log(`[package] writing ${kitZip}`);
+  zipDir(root, kitZip, {
     excludes: [
       "node_modules/*",
       "node_modules/**",
@@ -74,9 +76,20 @@ function main() {
     ],
   });
 
+  // checksums.txt — SHA-256 of each artifact, for distribution integrity.
+  const checksums = [];
+  for (const fp of [extZip, kitZip]) {
+    const data = readFileSync(fp);
+    const hash = createHash("sha256").update(data).digest("hex");
+    checksums.push(`${hash}  ${path.basename(fp)}`);
+  }
+  const checksumsFile = path.join(releaseDir, "checksums.txt");
+  writeFileSync(checksumsFile, checksums.join("\n") + "\n");
+
   console.log("[package] done.");
   console.log("  " + extZip);
-  console.log("  " + srcZip);
+  console.log("  " + kitZip);
+  console.log("  " + checksumsFile);
 }
 
 main();

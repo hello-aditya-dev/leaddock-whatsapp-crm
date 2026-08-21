@@ -99,7 +99,7 @@ export function openPalette() {
     try {
       cmd.run();
     } catch (err) {
-      console.warn("[waflow:palette] command threw", err);
+      console.warn("[leaddock:palette] command threw", err);
     }
   }
 

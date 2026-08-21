@@ -13,6 +13,7 @@ import { matchShortcut } from "../replies/parser.js";
 import * as adapter from "../whatsapp/adapter.js";
 import * as toast from "./toast.js";
 import * as modal from "./modal.js";
+import * as activity from "../crm/activity.js";
 
 let launcherEl = null;
 let lastInsert = null;
@@ -180,6 +181,12 @@ export async function insertReply(reply, contact) {
     try {
       await replies.incrementUsage(reply.id);
     } catch (err) {}
+    // Record activity on the current contact (if any) for the timeline.
+    try {
+      if (contact && contact.id) {
+        await activity.record(contact.id, "reply_inserted", { label: reply.shortcut || reply.name });
+      }
+    } catch (e) {}
     toast.success(`Inserted "${reply.name}" — review and press send when ready.`);
   } else {
     toast.error("Couldn't find the WhatsApp composer. Open a chat first.");

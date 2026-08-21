@@ -150,7 +150,7 @@ export async function commitImport(prepared) {
 export async function exportBackup() {
   const db = await storage.load();
   return {
-    app: "waflow",
+    app: "leaddock",
     version: SCHEMA_VERSION,
     exportedAt: nowIso(),
     data: {
@@ -160,6 +160,7 @@ export async function exportBackup() {
       tags: db.tags,
       statuses: db.statuses,
       followUps: db.followUps,
+      activity: db.activity || {},
       settings: db.settings,
       meta: db.meta,
     },
@@ -184,6 +185,7 @@ export async function restoreBackup(payload) {
     tags: data.tags || {},
     statuses: data.statuses || {},
     followUps: data.followUps || {},
+    activity: data.activity || {},
     settings: data.settings || {},
     meta: Object.assign({ createdAt: nowIso(), lastSeenAt: nowIso() }, data.meta || {}),
   };

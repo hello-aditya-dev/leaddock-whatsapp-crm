@@ -1,10 +1,10 @@
 # Publishing to the Chrome Web Store
 
-This document walks through packaging WaFlow, submitting it to the Chrome Web
+This document walks through packaging LeadDock, submitting it to the Chrome Web
 Store, and the privacy / permissions disclosures required for review. It
 includes a ready-to-paste store description.
 
-> **Independence notice.** WaFlow is an independent productivity extension
+> **Independence notice.** LeadDock is an independent productivity extension
 > for WhatsApp Web. It is **not** affiliated with or endorsed by WhatsApp or
 > Meta. Every store-listing field must preserve this — the single-purpose
 > statement, the description, and any visible copy must not imply WhatsApp or
@@ -19,8 +19,8 @@ You need:
 - A Google account.
 - A one-time **$5** Chrome Web Store developer registration fee (payable once
   per developer account, not per extension).
-- The WaFlow build artifacts:
-  - `release/waflow-extension-vX.Y.Z.zip` (from `npm run package`).
+- The LeadDock build artifacts:
+  - `release/leaddock-extension-vX.Y.Z.zip` (from `npm run package`).
 - At least one screenshot at 1280×800 (or 640×400). Up to 5 screenshots.
 - A small promotional tile (440×280) — optional but recommended.
 - The store-listing copy (see §5 below).
@@ -32,7 +32,7 @@ Use the packaging script to produce a clean ZIP that excludes dev-only files:
 ```bash
 npm install
 npm run build      # produces dist/
-npm run package    # produces release/waflow-extension-vX.Y.Z.zip + release/waflow-source-vX.Y.Z.zip
+npm run package    # produces release/leaddock-extension-vX.Y.Z.zip + release/leaddock-source-vX.Y.Z.zip
 ```
 
 What the packaging script excludes:
@@ -47,7 +47,7 @@ What the packaging script excludes:
 Validate the ZIP before submitting:
 
 ```bash
-unzip -l release/waflow-extension-v1.0.0.zip | head -40
+unzip -l release/leaddock-extension-v1.0.0.zip | head -40
 ```
 
 It should contain `manifest.json` at the root, with `src/`, `assets/`, and
@@ -63,14 +63,14 @@ nothing else from the dev toolchain.
 ## 4. Create the listing
 
 1. In the developer dashboard, click **Add new item**.
-2. Upload `release/waflow-extension-v1.0.0.zip`.
+2. Upload `release/leaddock-extension-v1.0.0.zip`.
 3. Fill in the listing fields (see §5 for copy).
 
 ### 4.1 Listing fields
 
 | Field                | Value                                                                                             |
 | -------------------- | ------------------------------------------------------------------------------------------------- |
-| Name                 | WaFlow — WhatsApp Web Sales Workspace (or your branded name)                                       |
+| Name                 | LeadDock — WhatsApp Web CRM (or your branded name)                                       |
 | Summary (short desc) | Turn WhatsApp Web into a lightweight sales CRM. Local-first, no backend.                          |
 | Category             | Productivity                                                                                      |
 | Language             | English (or your target language)                                                                  |
@@ -94,9 +94,9 @@ nothing else from the dev toolchain.
 ## 5. Store description (ready to paste)
 
 ```
-WaFlow — Turn WhatsApp Web into a lightweight sales CRM.
+LeadDock — Turn WhatsApp Web into a lightweight sales CRM.
 
-WaFlow adds the missing sales layer to WhatsApp Web. Track leads with clear
+LeadDock adds the missing sales layer to WhatsApp Web. Track leads with clear
 statuses, attach notes, manage follow-ups, and insert reusable replies —
 without leaving the conversation.
 
@@ -124,7 +124,7 @@ backend. No analytics. No telemetry. Nothing leaves your browser.
 
 YOU ALWAYS SEND
 
-WaFlow inserts text into the composer. It never auto-sends. There is no bulk
+LeadDock inserts text into the composer. It never auto-sends. There is no bulk
 messaging, no campaign automation, no message-history scraping.
 
 PERMISSIONS
@@ -136,7 +136,7 @@ We request only:
 
 INDEPENDENCE
 
-WaFlow is an independent productivity extension. It is not affiliated with or
+LeadDock is an independent productivity extension. It is not affiliated with or
 endorsed by WhatsApp or Meta. "WhatsApp" and "WhatsApp Web" are used
 descriptively to identify the application the extension interoperates with.
 ```
@@ -147,7 +147,7 @@ descriptively to identify the application the extension interoperates with.
 ## 6. Privacy disclosure (required by Chrome Web Store)
 
 The Chrome Web Store requires a Data Usage disclosure for each permission.
-WaFlow's answers:
+LeadDock's answers:
 
 | Permission                          | Data collected / transmitted                       | Justification                                  |
 | ----------------------------------- | -------------------------------------------------- | ---------------------------------------------- |
@@ -189,7 +189,7 @@ Chrome Web Store requires a one-sentence single-purpose statement. Use:
 > Add a lightweight CRM layer to WhatsApp Web so users can track leads,
 > notes, follow-ups, and reusable replies alongside their conversations.
 
-The single-purpose rule forbids bundling unrelated functionality. WaFlow's
+The single-purpose rule forbids bundling unrelated functionality. LeadDock's
 v1 scope is strictly CRM-on-WhatsApp-Web, so it complies.
 
 ## 9. Compliance checklist (pre-submit)
@@ -218,12 +218,12 @@ v1 scope is strictly CRM-on-WhatsApp-Web, so it complies.
 3. Reviewer feedback, if any, appears in the dashboard. Address it and
    resubmit.
 
-Common review pushbacks for extensions like WaFlow:
+Common review pushbacks for extensions like LeadDock:
 
 - "Why does this extension need host_permissions on web.whatsapp.com?"
   — Use the justification in §7 verbatim. The reviewer wants to confirm the
   host access is necessary for the stated single purpose.
-- "Does this extension automate messaging?" — Confirm it does not. WaFlow
+- "Does this extension automate messaging?" — Confirm it does not. LeadDock
   inserts text into the composer; the user always sends manually.
 - "Does this extension scrape message history?" — Confirm it does not.
 

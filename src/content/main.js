@@ -1,5 +1,5 @@
 /**
- * content/main.js — WaFlow content script entry point.
+ * content/main.js — LeadDock content script entry point.
  *
  * Runs on https://web.whatsapp.com/*. Responsibilities:
  *  1. Initialize storage + ensure migrations ran.
@@ -91,11 +91,11 @@ import { debounce } from "./utils/debounce.js";
       await demo.loadDemo();
       setTimeout(() => toast.success("Demo data loaded — explore the panel. Use Options → Reset Demo Data to clear.", { timeout: 5000 }), 800);
     } catch (err) {
-      console.warn("[waflow] demo load failed", err);
+      console.warn("[leaddock] demo load failed", err);
     }
   }
 
-  console.info(`[WaFlow] content script ready (backend: ${storage.backendKind()})`);
+  console.info(`[LeadDock] content script ready (backend: ${storage.backendKind()})`);
 })();
 
 function registerCommands() {
@@ -157,29 +157,29 @@ function wireMessageBridge() {
     (async () => {
       try {
         switch (msg.type) {
-          case "waflow:ping":
+          case "leaddock:ping":
             sendResponse({ ok: true, ready: adapter.isReady(), diag: adapter.diagnostics() });
             return;
-          case "waflow:dashboard":
+          case "leaddock:dashboard":
             sendResponse(await buildDashboard());
             return;
-          case "waflow:open-chat": {
+          case "leaddock:open-chat": {
             const ok = adapter.openChat(msg.contact || {});
             sendResponse({ ok });
             return;
           }
-          case "waflow:load-demo":
+          case "leaddock:load-demo":
             await demo.loadDemo();
             sendResponse({ ok: true });
             return;
-          case "waflow:reset-all":
+          case "leaddock:reset-all":
             await data.resetAll();
             sendResponse({ ok: true });
             return;
-          case "waflow:export-csv":
+          case "leaddock:export-csv":
             sendResponse({ ok: true, csv: await data.exportContactsCsv() });
             return;
-          case "waflow:export-backup":
+          case "leaddock:export-backup":
             sendResponse({ ok: true, backup: await data.exportBackup() });
             return;
           default:
@@ -347,13 +347,13 @@ function openFollowUpCurrent() {
 
 async function downloadCsv() {
   const csv = await data.exportContactsCsv();
-  triggerDownload("waflow-contacts.csv", csv, "text/csv");
+  triggerDownload("leaddock-contacts.csv", csv, "text/csv");
   toast.success("CSV exported");
 }
 
 async function downloadBackup() {
   const backup = await data.exportBackup();
-  triggerDownload("waflow-backup.json", JSON.stringify(backup, null, 2), "application/json");
+  triggerDownload("leaddock-backup.json", JSON.stringify(backup, null, 2), "application/json");
   toast.success("Backup downloaded");
 }
 

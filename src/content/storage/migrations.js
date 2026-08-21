@@ -31,6 +31,7 @@ export const MIGRATIONS = [
         tags: Object.assign({}, base.tags, (db && db.tags) || {}),
         statuses: Object.assign({}, base.statuses, (db && db.statuses) || {}),
         followUps: Object.assign({}, base.followUps, (db && db.followUps) || {}),
+        activity: Object.assign({}, base.activity, (db && db.activity) || {}),
         settings: Object.assign({}, base.settings, (db && db.settings) || {}),
         meta: Object.assign({}, base.meta, (db && db.meta) || {}),
       };
@@ -74,7 +75,7 @@ export function migrate(db) {
         current.version = m.to;
         if (!applied.includes(m.name)) applied.push(m.name);
       } catch (err) {
-        console.warn(`[waflow:migrations] migration ${m.name} failed`, err);
+        console.warn(`[leaddock:migrations] migration ${m.name} failed`, err);
         // On migration failure, fall back to a seeded DB preserving nothing
         // (user can restore from backup). Safer than serving a half-migrated DB.
         const fresh = createEmptyDb();

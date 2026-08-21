@@ -1,6 +1,6 @@
 # Customization
 
-WaFlow is white-label by design. A single file, `src/config/brand.js`, is the
+LeadDock is white-label by design. A single file, `src/config/brand.js`, is the
 source of truth for the product identity. Default content (statuses, tags,
 replies) is sourced from `fixtures/`. This document covers every customization
 surface and includes a white-label checklist.
@@ -22,39 +22,39 @@ source file hard-codes the product name, links, or colors.
 
 | Field                | Type     | Description                                                             | Example                                                                 |
 | -------------------- | -------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `name`               | string   | Display name of the product. Shown in panel header, popup, options.     | `"WaFlow"`                                                              |
+| `name`               | string   | Display name of the product. Shown in panel header, popup, options.     | `"LeadDock"`                                                              |
 | `shortName`          | string   | Compact label used where horizontal space is limited (badges, headers). | `"WF"`                                                                  |
 | `tagline`            | string   | One-line positioning statement.                                         | `"The lightweight CRM for WhatsApp Web"`                                |
 | `hero`               | string   | Longer hero line for marketing surfaces (popup header, landing).        | `"Turn WhatsApp Web into a lightweight sales CRM."`                     |
 | `primaryColor`       | string   | Accent / primary color used across UI chrome. Any valid CSS color.     | `"#0F766E"`                                                              |
 | `primaryColorDark`   | string   | Accent color for dark surfaces.                                         | `"#14B8A6"`                                                              |
-| `website`            | string   | Public marketing website URL.                                          | `"https://github.com/witejackel-eng/waflow-whatsapp-crm"`               |
-| `supportEmail`       | string   | Support contact shown in options + popup.                               | `"support@example.com"`                                                  |
+| `website`            | string   | Public marketing website URL.                                          | `"https://github.com/witejackel-eng/leaddock-whatsapp-crm"`               |
+| `supportEmail`       | string   | Support contact shown in options + popup.                               | `"witejackel@gmail.com"`                                                  |
 | `helpUrl`            | string   | Docs/help deep link.                                                    | `"https://.../docs/INSTALLATION.md"`                                    |
 | `privacyUrl`         | string   | Privacy policy deep link.                                               | `"https://.../PRIVACY.md"`                                               |
 | `logoPath`           | string   | Relative path (from extension root) to the logo used in chrome.         | `"assets/icons/icon-128.png"`                                            |
 | `version`            | string   | Version label mirrored from `manifest.json`.                            | `"1.0.0"`                                                                |
-| `independenceNotice` | string   | CRITICAL independence notice. Never remove.                            | `"WaFlow is an independent productivity extension. It is not affiliated with or endorsed by WhatsApp or Meta."` |
+| `independenceNotice` | string   | CRITICAL independence notice. Never remove.                            | `"LeadDock is an independent productivity extension. It is not affiliated with or endorsed by WhatsApp or Meta."` |
 
 ### 1.2 Editing brand.js
 
 ```js
 // src/config/brand.js (excerpt)
 const brand = {
-  name: "WaFlow",
+  name: "LeadDock",
   shortName: "WF",
   tagline: "The lightweight CRM for WhatsApp Web",
   hero: "Turn WhatsApp Web into a lightweight sales CRM.",
   primaryColor: "#0F766E",
   primaryColorDark: "#14B8A6",
-  website: "https://github.com/witejackel-eng/waflow-whatsapp-crm",
-  supportEmail: "support@example.com",
-  helpUrl: "https://github.com/witejackel-eng/waflow-whatsapp-crm/blob/main/docs/INSTALLATION.md",
-  privacyUrl: "https://github.com/witejackel-eng/waflow-whatsapp-crm/blob/main/PRIVACY.md",
+  website: "https://github.com/witejackel-eng/leaddock-whatsapp-crm",
+  supportEmail: "witejackel@gmail.com",
+  helpUrl: "https://github.com/witejackel-eng/leaddock-whatsapp-crm/blob/main/docs/INSTALLATION.md",
+  privacyUrl: "https://github.com/witejackel-eng/leaddock-whatsapp-crm/blob/main/PRIVACY.md",
   logoPath: "assets/icons/icon-128.png",
   version: "1.0.0",
   independenceNotice:
-    "WaFlow is an independent productivity extension. It is not affiliated with or endorsed by WhatsApp or Meta.",
+    "LeadDock is an independent productivity extension. It is not affiliated with or endorsed by WhatsApp or Meta.",
 };
 ```
 
@@ -83,7 +83,7 @@ the focused-input ring, and the panel header underline.
 
 ## 3. Replacing the logo
 
-WaFlow ships with PNG icons at four sizes:
+LeadDock ships with PNG icons at four sizes:
 
 ```
 assets/icons/icon-16.png
@@ -202,7 +202,7 @@ Once you have edited `brand.js` and replaced the icons:
 ```bash
 npm install
 npm run build      # produces a clean build under dist/
-npm run package    # produces release/waflow-extension-vX.Y.Z.zip + release/waflow-source-vX.Y.Z.zip
+npm run package    # produces release/leaddock-extension-vX.Y.Z.zip + release/leaddock-source-vX.Y.Z.zip
 ```
 
 Load `dist/` as an unpacked extension to sanity-check the build before zipping
@@ -240,7 +240,7 @@ the relevant section.
 - [ ] **Build** — ran `npm run build` and `npm run package`; loaded `dist/`
   unpacked and verified the brand shows correctly.
 - [ ] **Pre-publish sweep** — searched the codebase for any remaining
-  `WaFlow` / `witejackel-eng` references that should have been replaced.
+  `LeadDock` / `witejackel-eng` references that should have been replaced.
   Links to the upstream repo in `LICENSE.md` may remain; the independence
   notice must remain.
 - [ ] **Compliance** — confirmed no claims of WhatsApp or Meta affiliation, no

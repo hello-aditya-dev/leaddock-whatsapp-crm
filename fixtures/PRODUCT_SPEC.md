@@ -1,7 +1,7 @@
-# WaFlow Product Specification
+# LeadDock Product Specification
 
 ## Product
-WaFlow — WhatsApp Web Sales Workspace
+LeadDock — WhatsApp Web CRM
 
 ## Positioning
 Turn WhatsApp Web into a lightweight sales CRM.

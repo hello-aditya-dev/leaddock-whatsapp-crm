@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "WaFlow — WhatsApp Web Sales Workspace",
-  "short_name": "WaFlow",
+  "name": "LeadDock — WhatsApp Web CRM",
+  "short_name": "LeadDock",
   "version": "1.0.0",
   "description": "Turn WhatsApp Web into a lightweight sales CRM. Track leads, notes, follow-ups, and reusable replies — local-first, no backend.",
   "default_locale": "en",
@@ -12,7 +12,7 @@
     "128": "assets/icons/icon-128.png"
   },
   "action": {
-    "default_title": "WaFlow Dashboard",
+    "default_title": "LeadDock Dashboard",
     "default_popup": "src/popup/index.html",
     "default_icon": {
       "16": "assets/icons/icon-16.png",

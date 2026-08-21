@@ -1,18 +1,18 @@
-# WaFlow Architecture
+# LeadDock Architecture
 
-This document describes WaFlow's component boundaries, the WhatsApp adapter
+This document describes LeadDock's component boundaries, the WhatsApp adapter
 abstraction, the storage layer, the UI layer, the runtime data flow, failure
 modes and graceful degradation, the observer strategy, and the performance
 approach.
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
 
 ---
 
 ## 1. Component boundaries
 
-WaFlow is a Manifest V3 Chrome extension with four runtime surfaces, plus the
+LeadDock is a Manifest V3 Chrome extension with four runtime surfaces, plus the
 build/test/scripts layer.
 
 ```
@@ -147,7 +147,7 @@ the adapter returns `null` / `false`, and the CRM core degrades gracefully
 
 `insertMessage(text)` focuses the composer, sets its content via the browser's
 native input events (so WhatsApp's React state updates), and returns `true` on
-success. WaFlow **never** simulates a click on the send button. The user
+success. LeadDock **never** simulates a click on the send button. The user
 always confirms and presses send.
 
 ## 3. Storage layer
@@ -203,7 +203,7 @@ or read the DOM.
 ## 4. UI layer
 
 All CRM UI lives in `src/content/ui/`. To prevent WhatsApp Web's CSS from
-bleeding into WaFlow (and vice versa), the CRM panel mounts inside a
+bleeding into LeadDock (and vice versa), the CRM panel mounts inside a
 **shadow root**:
 
 ```
@@ -259,12 +259,12 @@ replies/parser.js substitutes {{name}}, {{phone}}, {{company}}, {{product}}
 adapter.insertMessage(text) → focuses composer, inserts text
         │
         ▼
-USER PRESSES SEND (WaFlow never auto-sends)
+USER PRESSES SEND (LeadDock never auto-sends)
 ```
 
 ## 6. Failure modes and graceful degradation
 
-WaFlow is designed to fail soft. No single WhatsApp selector mismatch should
+LeadDock is designed to fail soft. No single WhatsApp selector mismatch should
 break the whole CRM.
 
 | Failure                                   | Behavior                                                                  |
@@ -283,7 +283,7 @@ summarized into a single diagnostics line.
 
 ## 7. Observer strategy
 
-WaFlow uses `MutationObserver`, never whole-page polling.
+LeadDock uses `MutationObserver`, never whole-page polling.
 
 - **Narrow targets.** Observers attach to specific containers (chat list, chat
   header, composer region) — never to `document.body`.
@@ -303,7 +303,7 @@ WaFlow uses `MutationObserver`, never whole-page polling.
 
 - **Local-only.** No network round-trips on the critical path.
 - **Shadow-root CSS isolation** keeps WhatsApp's CSS recalculation cost off
-  WaFlow's components.
+  LeadDock's components.
 - **Render-slice updates.** The panel re-renders only the affected slice
   (e.g., just the notes list, not the whole panel) on each change.
 - **Debounced observers** (see §7).

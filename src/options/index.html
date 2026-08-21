@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WaFlow Settings</title>
+    <title>LeadDock Settings</title>
     <link rel="stylesheet" href="settings.css" />
   </head>
   <body>
     <header class="wf-set-head">
       <div class="wf-set-brand">
-        <div class="wf-set-logo" id="wfLogo">WF</div>
+        <div class="wf-set-logo" id="wfLogo">LD</div>
         <div>
-          <h1 class="wf-set-name" id="wfName">WaFlow</h1>
+          <h1 class="wf-set-name" id="wfName">LeadDock</h1>
           <p class="wf-set-tag" id="wfTag">Settings</p>
         </div>
       </div>
@@ -20,6 +20,7 @@
         <a href="#statuses">Statuses</a>
         <a href="#tags">Tags</a>
         <a href="#data">Data</a>
+        <a href="#diagnostics">Diagnostics</a>
         <a href="#about">About</a>
       </nav>
     </header>
@@ -87,10 +88,19 @@
         </div>
       </section>
 
+      <section id="diagnostics" class="wf-set-section">
+        <h2>Diagnostics</h2>
+        <p class="wf-set-help">Commercial-support health check. If something isn't working on WhatsApp Web, copy this snapshot and email it to support.</p>
+        <div id="diagGrid" class="wf-set-card"></div>
+        <div class="wf-set-actions">
+          <button class="wf-btn" id="copyDiagnostics">Copy diagnostics to clipboard</button>
+        </div>
+      </section>
+
       <section id="about" class="wf-set-section">
         <h2>About</h2>
         <div class="wf-set-card">
-          <p><strong id="aboutName">WaFlow</strong> <span id="aboutVersion">v1.0.0</span></p>
+          <p><strong id="aboutName">LeadDock</strong> <span id="aboutVersion">v1.0.0</span></p>
           <p class="wf-set-help" id="aboutNotice"></p>
           <p class="wf-set-help">Support: <a id="aboutSupport" href="#">support</a> · Website: <a id="aboutWebsite" href="#">project</a> · Privacy: <a id="aboutPrivacy" href="#">policy</a></p>
         </div>

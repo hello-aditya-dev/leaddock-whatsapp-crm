@@ -16,8 +16,17 @@
  * }
  */
 
-export const STORAGE_KEY = "waflow.db.v1";
+export const STORAGE_KEY = "leaddock.db.v1";
 export const SCHEMA_VERSION = 1;
+
+/**
+ * Names of every top-level collection. Used by migrations + load() to ensure
+ * all collections exist defensively. Add new collections here.
+ */
+export const COLLECTIONS = [
+  "contacts", "notes", "replies", "tags", "statuses",
+  "followUps", "activity", "settings", "meta",
+];
 
 /** Default statuses (canonical from fixtures/demo-statuses.json). */
 export const DEFAULT_STATUSES = [
@@ -105,6 +114,7 @@ export function createEmptyDb(opts = {}) {
     tags,
     statuses,
     followUps,
+    activity: {},
     settings: { ...DEFAULT_SETTINGS },
     meta: {
       createdAt: now,

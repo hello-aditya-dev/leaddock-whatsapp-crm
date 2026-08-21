@@ -1,8 +1,8 @@
-# WaFlow
+# LeadDock
 
 > Turn WhatsApp Web into a lightweight sales CRM.
 
-WaFlow is a Manifest V3 Chrome extension that adds a lightweight, local-first
+LeadDock is a Manifest V3 Chrome extension that adds a lightweight, local-first
 sales CRM directly on top of WhatsApp Web. Track leads, attach notes, manage
 follow-ups, and insert reusable replies without leaving the conversation — all
 while keeping every CRM record inside your own browser.
@@ -14,7 +14,7 @@ while keeping every CRM record inside your own browser.
 - **Permissions:** `storage` + host `https://web.whatsapp.com/*`
 - **Backend:** None. CRM data never leaves the browser by default.
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with, made by, or endorsed by WhatsApp or
 > Meta. "WhatsApp" and "WhatsApp Web" are used descriptively to identify the
 > application the extension interoperates with.
@@ -23,7 +23,7 @@ while keeping every CRM record inside your own browser.
 
 ## Table of contents
 
-1. [What WaFlow does](#what-waflow-does)
+1. [What LeadDock does](#what-leaddock-does)
 2. [Feature list](#feature-list)
 3. [Project structure](#project-structure)
 4. [Installation](#installation)
@@ -38,9 +38,9 @@ while keeping every CRM record inside your own browser.
 
 ---
 
-## What WaFlow does
+## What LeadDock does
 
-WaFlow turns WhatsApp Web into a structured sales workspace. When you open a
+LeadDock turns WhatsApp Web into a structured sales workspace. When you open a
 chat, the extension detects the contact context, opens a CRM panel beside the
 conversation, and lets you:
 
@@ -51,7 +51,7 @@ conversation, and lets you:
 - See a dashboard of today's follow-ups and pipeline state.
 - Search, filter, import, and export CRM data.
 
-You always press send. WaFlow **never auto-sends** messages, **never scrapes**
+You always press send. LeadDock **never auto-sends** messages, **never scrapes**
 message history, and **never transmits** CRM data to any server.
 
 ## Feature list
@@ -76,7 +76,7 @@ message history, and **never transmits** CRM data to any server.
 ## Project structure
 
 ```
-waflow/
+leaddock/
   manifest.json
   package.json
   README.md  LICENSE.md  PRIVACY.md  SECURITY.md  CHANGELOG.md  CONTRIBUTING.md
@@ -105,7 +105,7 @@ waflow/
 
 ## Installation
 
-WaFlow is currently distributed as an unpacked extension (developer / commercial
+LeadDock is currently distributed as an unpacked extension (developer / commercial
 kit) and as a packaged `.zip` ready for submission to the Chrome Web Store.
 
 ### A. Load unpacked (developer / buyer)
@@ -114,8 +114,8 @@ kit) and as a packaged `.zip` ready for submission to the Chrome Web Store.
 2. Open `chrome://extensions` in Chrome (or any Chromium browser supporting MV3).
 3. Toggle **Developer mode** on (top-right).
 4. Click **Load unpacked**.
-5. Select the `waflow/` directory (the one containing `manifest.json`).
-6. Open `https://web.whatsapp.com`. The WaFlow CRM panel appears beside the
+5. Select the `leaddock/` directory (the one containing `manifest.json`).
+6. Open `https://web.whatsapp.com`. The LeadDock CRM panel appears beside the
    open chat.
 
 ### B. Packaged extension (end users, after Web Store publication)
@@ -124,7 +124,7 @@ When published: install directly from the Chrome Web Store listing. See
 `docs/PUBLISHING.md` for the publication process and `docs/INSTALLATION.md` for
 step-by-step screenshots and verification steps.
 
-> **WhatsApp tab reload.** If you installed or updated WaFlow while WhatsApp Web
+> **WhatsApp tab reload.** If you installed or updated LeadDock while WhatsApp Web
 > was already open, reload the `web.whatsapp.com` tab so the content script can
 > initialize.
 
@@ -137,20 +137,20 @@ Requirements:
 - Chrome / Chromium with Manifest V3 support.
 
 ```bash
-git clone https://github.com/witejackel-eng/waflow-whatsapp-crm.git
-cd waflow-whatsapp-crm/waflow
+git clone https://github.com/witejackel-eng/leaddock-whatsapp-crm.git
+cd leaddock-whatsapp-crm/leaddock
 npm install
 npm test         # runs the node:test suite under tests/
 npm run lint     # eslint over src/ and tests/
 npm run build    # produces a clean extension build under dist/
-npm run package  # produces release/waflow-extension-vX.Y.Z.zip + release/waflow-source-vX.Y.Z.zip
+npm run package  # produces release/leaddock-extension-vX.Y.Z.zip + release/leaddock-source-vX.Y.Z.zip
 ```
 
-Then load `waflow/` (or `dist/`) as an unpacked extension as described above.
+Then load `leaddock/` (or `dist/`) as an unpacked extension as described above.
 
 ## Customization overview
 
-WaFlow is white-label by design. The single source of truth for branding is:
+LeadDock is white-label by design. The single source of truth for branding is:
 
 ```
 src/config/brand.js
@@ -170,7 +170,7 @@ checklist.
 
 ## Architecture overview
 
-WaFlow uses a strict three-layer separation inside the content script:
+LeadDock uses a strict three-layer separation inside the content script:
 
 1. **WhatsApp adapter** — `src/content/whatsapp/` is the **only** layer that
    knows WhatsApp Web DOM selectors. It exposes a stable interface:
@@ -249,7 +249,7 @@ Quick pointers — full guide in `docs/TROUBLESHOOTING.md`:
 
 ## Commercial licensing
 
-WaFlow is sold as a commercial developer kit under four tiers. See `LICENSE.md`
+LeadDock is sold as a commercial developer kit under four tiers. See `LICENSE.md`
 for the full starting template and `docs/LICENSES.md` for a plain-language
 summary.
 
@@ -265,7 +265,7 @@ summary.
 
 ## Current status
 
-WaFlow **v1.0.0** is the initial stable release. It ships the full v1 feature
+LeadDock **v1.0.0** is the initial stable release. It ships the full v1 feature
 set described above, the four-tier commercial license, and the complete
 documentation set. The product is independent and not affiliated with WhatsApp
 or Meta — that notice appears in the README, the privacy policy, the storefront

@@ -1,11 +1,11 @@
-# Contributing to WaFlow
+# Contributing to LeadDock
 
-Thanks for your interest in improving WaFlow. This document describes how to
+Thanks for your interest in improving LeadDock. This document describes how to
 set up a development environment, the code style we use, how to run tests, how
 to add features safely (i.e., via the adapter abstraction), and the PR
 process.
 
-> **Independence notice.** WaFlow is an independent productivity extension for
+> **Independence notice.** LeadDock is an independent productivity extension for
 > WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.
 > Contributed code must respect this — do not introduce claims of WhatsApp/Meta
 > affiliation, automated bulk messaging, or message-history scraping.
@@ -22,8 +22,8 @@ Requirements:
 - `git`.
 
 ```bash
-git clone https://github.com/witejackel-eng/waflow-whatsapp-crm.git
-cd waflow-whatsapp-crm/waflow
+git clone https://github.com/witejackel-eng/leaddock-whatsapp-crm.git
+cd leaddock-whatsapp-crm/leaddock
 npm install
 ```
 
@@ -32,14 +32,14 @@ Load the extension into Chrome:
 1. Open `chrome://extensions`.
 2. Enable **Developer mode**.
 3. Click **Load unpacked**.
-4. Select the `waflow/` folder.
+4. Select the `leaddock/` folder.
 5. Open `https://web.whatsapp.com`.
 
 After making changes, reload the extension card and reload the WhatsApp Web tab.
 
 ## 2. Code style
 
-WaFlow is written in **vanilla JavaScript using ES modules**. We deliberately
+LeadDock is written in **vanilla JavaScript using ES modules**. We deliberately
 avoid a build step inside the extension runtime; the only build outputs are
 produced by `scripts/build.js` and `scripts/package.js`, which copy and zip
 source into distribution artifacts.
@@ -72,7 +72,7 @@ Prettier configuration is shared in the repository root.
 
 ## 3. Running tests
 
-WaFlow ships a unit-test suite using Node's built-in test runner:
+LeadDock ships a unit-test suite using Node's built-in test runner:
 
 ```bash
 npm test
@@ -125,13 +125,13 @@ When you add a CRM feature:
    `src/content/whatsapp/selectors.js`.
 3. Never reach into the DOM from `src/content/crm/` or `src/content/ui/`.
 
-This rule keeps WaFlow functional when WhatsApp ships DOM changes — only
+This rule keeps LeadDock functional when WhatsApp ships DOM changes — only
 `src/content/whatsapp/selectors.js` needs updating.
 
 ## 5. Project structure map
 
 ```
-waflow/
+leaddock/
   manifest.json
   package.json
   src/
@@ -242,4 +242,4 @@ new file, mark it clearly with a header referencing `LICENSE.md`.
 
 ---
 
-Thanks for helping make WaFlow better.
+Thanks for helping make LeadDock better.
