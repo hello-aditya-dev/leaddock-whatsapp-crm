@@ -48,7 +48,7 @@ from the website/storefront.
 - **Host permission justification:** "The panel docks beside chats on web.whatsapp.com; it reads the current chat header to identify the contact and inserts reply text into the composer when you choose."
 - **storage permission justification:** "All CRM records are saved locally in the browser via chrome.storage.local."
 - **Data usage disclosures:** Does NOT collect personally identifiable info, health, financial, authentication, communications, location, web history, user activity, or website content.
-- **Privacy policy URL:** https://leaddock.vercel.app/privacy
+- **Privacy policy URL:** https://leaddock-site.vercel.app/privacy
 
 ## 6. Compliance notes
 

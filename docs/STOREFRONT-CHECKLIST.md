@@ -47,8 +47,8 @@ Download ({{tier}}):
   • Extension ZIP + commercial kit: {{download_links}}
   • SHA-256 checksums: {{checksums_link}}
 
-Install in 2 minutes: https://leaddock.vercel.app/docs
-License terms: https://leaddock.vercel.app/license
+Install in 2 minutes: https://leaddock-site.vercel.app/docs
+License terms: https://leaddock-site.vercel.app/license
 
 Questions? Reply to this email — witejackel@gmail.com
 

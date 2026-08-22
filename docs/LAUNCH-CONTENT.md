@@ -2,7 +2,7 @@
 
 Ready-to-post launch content. Rules: use demo data only in visuals, no fake
 scarcity/counters/ratings, keep the independence notice where the product is
-shown. Links: site `https://leaddock.vercel.app`, support
+shown. Links: site `https://leaddock-site.vercel.app`, support
 `witejackel@gmail.com`.
 
 ---
@@ -21,7 +21,7 @@ shown. Links: site `https://leaddock.vercel.app`, support
 >
 > It's called LeadDock, and after selling it as a commercial kit, agencies can now deploy it for their clients too.
 >
-> https://leaddock.vercel.app
+> https://leaddock-site.vercel.app
 
 ### Post 2 — The workflow demo
 
@@ -35,7 +35,7 @@ shown. Links: site `https://leaddock.vercel.app`, support
 >
 > That's the whole product. LeadDock turns WhatsApp Web into your sales workspace without moving you anywhere else.
 >
-> Demo + details: https://leaddock.vercel.app/demo
+> Demo + details: https://leaddock-site.vercel.app/demo
 
 ### Post 3 — For agencies & developers
 
@@ -45,7 +45,7 @@ shown. Links: site `https://leaddock.vercel.app`, support
 >
 > Local-first (no backend to run), Manifest V3, 62 automated tests, real docs.
 >
-> https://leaddock.vercel.app/for-agencies
+> https://leaddock-site.vercel.app/for-agencies
 
 ---
 
@@ -54,26 +54,26 @@ shown. Links: site `https://leaddock.vercel.app`, support
 1. > I built a CRM that lives inside WhatsApp Web.
    > Statuses, notes, tags, follow-ups — docked beside your chats.
    > No backend. No subscription. Your data never leaves your browser.
-   > https://leaddock.vercel.app
+   > https://leaddock-site.vercel.app
 
 2. > Typing /price in the WhatsApp composer and watching your saved reply appear >> manually retyping pricing for the 40th time this week
    >
    > LeadDock quick replies. You always press send.
-   > https://leaddock.vercel.app/whatsapp-quick-replies
+   > https://leaddock-site.vercel.app/whatsapp-quick-replies
 
 3. > "I'll follow up tomorrow" — you, 11 days ago
    >
    > LeadDock gives every chat a follow-up date and shows you today's list when you open WhatsApp Web.
-   > https://leaddock.vercel.app/whatsapp-follow-up
+   > https://leaddock-site.vercel.app/whatsapp-follow-up
 
 4. > Architecture nerds: LeadDock isolates ALL WhatsApp DOM logic in one adapter layer. CRM core never sees a selector.
    > Vanilla JS, MV3, 62 tests, CI, versioned storage schema.
-   > Full source from $59. https://leaddock.vercel.app/developer-kit
+   > Full source from $59. https://leaddock-site.vercel.app/developer-kit
 
 5. > Sold as a one-time license, not a subscription:
    > • $59 Commercial — rebrand it for your own org
    > • $99 Agency — deploy branded builds for up to 5 clients
-   > Local-first WhatsApp Web CRM. https://leaddock.vercel.app/pricing
+   > Local-first WhatsApp Web CRM. https://leaddock-site.vercel.app/pricing
 
 ---
 
@@ -99,8 +99,8 @@ Rules of engagement: disclose you built it when asked, don't DM-pitch, answer te
 >
 > Agencies use our Agency license ($99 one-time) to brand it from one config file and deliver installable builds to up to 5 client organizations — then charge their own setup/support fees on top.
 >
-> Worth a look? 60-second demo: https://leaddock.vercel.app/demo
-> Agency details: https://leaddock.vercel.app/for-agencies
+> Worth a look? 60-second demo: https://leaddock-site.vercel.app/demo
+> Agency details: https://leaddock-site.vercel.app/for-agencies
 >
 > {{your name}}
 > (LeadDock is independent — not affiliated with WhatsApp or Meta.)
