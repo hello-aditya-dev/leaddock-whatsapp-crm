@@ -23,13 +23,13 @@ export const brand = {
   /** Accent color for dark surfaces. */
   primaryColorDark: "#14B8A6",
   /** Public marketing website. */
-  website: "https://github.com/witejackel-eng/leaddock-whatsapp-crm",
+  website: "https://leaddock.vercel.app",
   /** Support contact shown in options + popup. */
   supportEmail: "witejackel@gmail.com",
   /** docs/help deep link. */
-  helpUrl: "https://github.com/witejackel-eng/leaddock-whatsapp-crm/blob/main/docs/INSTALLATION.md",
+  helpUrl: "https://leaddock.vercel.app/docs",
   /** Privacy policy deep link. */
-  privacyUrl: "https://github.com/witejackel-eng/leaddock-whatsapp-crm/blob/main/PRIVACY.md",
+  privacyUrl: "https://leaddock.vercel.app/privacy",
   /** Relative path (from extension root) to the logo used in chrome. */
   logoPath: "assets/icons/icon-128.png",
   /** Version label mirrored from manifest. */

@@ -58,12 +58,10 @@ messaging, no campaign automation, no message-history scraping.
 
 ## Pricing
 
-| Tier                | Price | Best for                                  |
-| ------------------- | ----- | ----------------------------------------- |
-| Personal            | $29   | Solo users                                 |
-| Commercial          | $59   | One organization using it internally      |
-| Agency              | $99   | Agencies delivering client work            |
-| Extended Reseller   | $149  | Resellers and white-label SaaS businesses |
+| Tier       | Price | Best for                             |
+| ---------- | ----- | ------------------------------------ |
+| Commercial | $59   | One organization using it internally |
+| Agency     | $99   | Agencies delivering client work      |
 
 See `docs/LICENSES.md` for the plain-language license guide and `LICENSE.md`
 for the full license template.
@@ -90,11 +88,11 @@ Only `storage` and `host_permissions: https://web.whatsapp.com/*`. No
 `<all_urls>`, no `tabs`, no `cookies`.
 
 **Can I rebrand LeadDock?**
-Yes, under the Commercial, Agency, or Extended Reseller tiers. Edit
+Yes, under both the Commercial and Agency tiers. Edit
 `src/config/brand.js`, replace the icons, and rebuild.
 
 **Can I resell LeadDock?**
-Yes, under the Extended Reseller tier. See `docs/LICENSES.md`.
+No tier grants source-resale rights. See `docs/LICENSES.md`.
 
 **Is there a backend / cloud sync?**
 Not in v1.0.0. Cloud sync is on the V2 exploration list — see `docs/ROADMAP.md`.

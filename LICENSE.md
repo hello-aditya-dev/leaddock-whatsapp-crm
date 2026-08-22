@@ -23,7 +23,7 @@
 
 The Software is distributed as a commercial developer kit. The source code,
 assets, fixtures, and documentation (collectively, the "Software") are licensed,
-not sold. This License defines four tiers with distinct rights. By purchasing,
+not sold. This License defines two tiers with distinct rights. By purchasing,
 downloading, copying, modifying, building, distributing, or using the Software,
 you ("Licensee") accept the terms of the tier you purchased.
 
@@ -47,22 +47,7 @@ applicable law.
 
 ## 3. License tiers
 
-### 3.1 Personal — $29
-
-- **Intended use:** Personal, non-commercial productivity use by an individual.
-- **Grant:** One seat may install and use the Binary on their own browser for
-  their own personal WhatsApp Web conversations.
-- **Permitted:**
-  - Installing the Binary on the seat's own browser.
-  - Using all v1 features for personal lead/notes/follow-ups management.
-  - Creating JSON/CSV backups of the seat's own data.
-- **Prohibited:**
-  - Any commercial use, including use by sole traders for paying customers.
-  - Modifying, redistributing, or reselling the Source or Binary.
-  - Rebranding the Software.
-  - Distributing the Source to any other person.
-
-### 3.2 Commercial — $59
+### 3.1 Commercial — $59
 
 - **Intended use:** A single organization using LeadDock internally for its own
   sales / customer workflow.
@@ -84,7 +69,7 @@ applicable law.
     policy.
   - Using the LeadDock name or identity to imply affiliation with WhatsApp/Meta.
 
-### 3.3 Agency — $99
+### 3.2 Agency — $99
 
 - **Intended use:** An agency delivering client work.
 - **Grant:** The Licensee may produce and deliver **up to five (5) Branded End
@@ -100,54 +85,22 @@ applicable law.
   - Delivering or exposing the Source to clients. Clients receive the Binary
     only.
   - Producing more than five Branded End Products under a single Agency license.
-    Additional End Products require an additional Agency license or an upgrade
-    to Extended Reseller.
+    Additional End Products require an additional Agency license.
   - Reselling the Source or the Software as a standalone product (e.g., as a
     competing developer kit).
   - Using the LeadDock name or identity to imply affiliation with WhatsApp/Meta.
 
-### 3.4 Advanced — $149
-
-- **Intended use:** A reseller, agency, or white-label business that wants the
-  widest latitude to deploy branded end products at scale.
-- **Grant:** The Licensee may produce and distribute an unlimited number of
-  Branded End Products under its own brand.
-- **Permitted:**
-  - White-labeling the Software end-to-end (name, logo, colors, links, copy).
-  - Deploying the Binary to an unlimited number of end users / clients.
-  - Modifying, extending, or rebranding the Software without limit for the
-    purpose of producing Branded End Products.
-- **NOT Permitted (important):**
-  - **Reselling or redistributing the Source Code** as a standalone product,
-    competing developer kit, template, or resale asset. The Advanced tier grants
-    unlimited *branded end-product deployment*, not unlimited *source resale*.
-  - Disclosing the Source to end users / clients except as compiled into a
-    Branded End Product they receive as a Binary.
-  - Using the "LeadDock" name or the Licensor's identity to imply endorsement.
-- **Conditions:**
-  - The Licensee must not represent that the Software is affiliated with or
-    endorsed by WhatsApp or Meta.
-  - The Licensee must not use the "LeadDock" name or the Licensor's identity to
-    imply endorsement by the Licensor of the Licensee's products.
-  - The Licensee remains solely responsible for end-user support, refunds, and
-    compliance for the products it distributes.
-  - This License, the independence notice, and the privacy policy must travel
-    with any redistribution of the Source (where Source is redistributed at all
-    under the limited exceptions above).
-
-> **Plain-language note:** The Advanced tier is deliberately scoped to protect
-> the underlying Source from becoming a commodity resale asset. If you need to
-> resell the Source itself, contact the Licensor for a separate Source Resale
-> License.
-
-### 3.5 Tier summary
+### 3.3 Tier summary
 
 | Tier              | Price | Seats / End Products            | Source modification | Binary redistribution     | Source resale |
 | ----------------- | ----- | ------------------------------- | -------------------- | ------------------------- | ------------- |
-| Personal          | $29   | 1 seat, personal use only       | No                  | No                        | No            |
 | Commercial        | $59   | 1 End Product (internal)        | Yes                 | Internal only             | No            |
 | Agency            | $99   | Up to 5 client End Products     | Yes                 | Yes, Binary to clients    | No            |
-| Advanced          | $149  | Unlimited Branded End Products  | Yes                 | Yes, unlimited Branded    | No            |
+
+> **Plain-language note:** Neither tier grants source-resale rights. The
+> Software may be used and rebranded per the tier purchased; it may not become
+> someone else's product or developer kit. For custom or OEM arrangements,
+> contact the Licensor.
 
 ## 4. Ownership
 

@@ -7,10 +7,8 @@ LeadDock — WhatsApp Web CRM
 Turn WhatsApp Web into a lightweight sales CRM.
 
 ## Commercial Tiers
-- Personal: $29
 - Commercial: $59
 - Agency: $99
-- Extended Reseller: $149
 
 ## Core Features
 - lead statuses

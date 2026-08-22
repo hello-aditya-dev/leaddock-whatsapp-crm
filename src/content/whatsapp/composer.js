@@ -84,7 +84,7 @@ export function insertText(text, opts = {}) {
   }
 
   // Preferred path: execCommand insertText fires WhatsApp's input handlers.
-  let done = false;
+  let done;
   try {
     done = document.execCommand("insertText", false, text);
   } catch (err) {

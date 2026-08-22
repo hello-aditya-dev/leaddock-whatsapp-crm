@@ -249,16 +249,14 @@ Quick pointers — full guide in `docs/TROUBLESHOOTING.md`:
 
 ## Commercial licensing
 
-LeadDock is sold as a commercial developer kit under four tiers. See `LICENSE.md`
+LeadDock is sold as a commercial developer kit under two tiers. See `LICENSE.md`
 for the full starting template and `docs/LICENSES.md` for a plain-language
 summary.
 
-| Tier                | Price | Best for                                  | Key rights                                                                 |
-| ------------------- | ----- | ----------------------------------------- | -------------------------------------------------------------------------- |
-| Personal            | $29   | Solo users                                | Personal use, one seat, no resale, no source redistribution                |
-| Commercial          | $59   | One organization                           | Commercial use, one branded end product, source modifiable, no kit resale |
-| Agency               | $99   | Agencies delivering client work           | Up to 5 branded end products to clients; client receives binary, not source|
-| Extended Reseller   | $149  | Resellers & white-label SaaS businesses   | Full white-label + resell rights; unlimited end products                   |
+| Tier       | Price | Best for                        | Key rights                                                                  |
+| ---------- | ----- | ------------------------------- | --------------------------------------------------------------------------- |
+| Commercial | $59   | One organization                | Commercial use, one branded end product, source modifiable, no kit resale   |
+| Agency     | $99   | Agencies delivering client work | Up to 5 branded end products to clients; client receives binary, not source |
 
 > The license file is a starting template. Review it with a lawyer before any
 > commercial distribution.
@@ -266,7 +264,7 @@ summary.
 ## Current status
 
 LeadDock **v1.0.0** is the initial stable release. It ships the full v1 feature
-set described above, the four-tier commercial license, and the complete
+set described above, the two-tier commercial license, and the complete
 documentation set. The product is independent and not affiliated with WhatsApp
 or Meta — that notice appears in the README, the privacy policy, the storefront
 copy, and in-product surfaces where appropriate.

@@ -1,7 +1,7 @@
 # LeadDock License Tiers (Plain-Language Guide)
 
 This is a companion to `LICENSE.md`. It explains, in plain language, what each
-of the four license tiers permits and forbids, how to choose, how to upgrade,
+of the two license tiers permits and forbids, how to choose, how to upgrade,
 and answers common questions.
 
 > **This is a summary, not legal advice.** The authoritative text is
@@ -16,36 +16,12 @@ and answers common questions.
 
 ## 1. Tier summary
 
-| Tier                | Price | One sentence                                                                                       |
-| ------------------- | ----- | -------------------------------------------------------------------------------------------------- |
-| Personal            | $29   | Use LeadDock for your own WhatsApp Web leads; do not resell, redistribute, or rebrand.               |
-| Commercial          | $59   | Modify the source and ship one branded End Product inside your organization.                       |
-| Agency              | $99   | Deliver up to 5 branded End Products to clients; clients get the binary, not the source.           |
-| Extended Reseller   | $149  | Full white-label + resell rights. Resell the source or the binary under your brand, unlimited.     |
+| Tier       | Price | One sentence                                                                             |
+| ---------- | ----- | ---------------------------------------------------------------------------------------- |
+| Commercial | $59   | Modify the source and ship one branded End Product inside your organization.             |
+| Agency     | $99   | Deliver up to 5 branded End Products to clients; clients get the binary, not the source. |
 
-## 2. Personal — $29
-
-### Permitted
-
-- Install and use the built LeadDock extension on your own browser.
-- Use all v1 features for personal WhatsApp Web lead management.
-- Export JSON / CSV backups of your own CRM data.
-- Move the install to a new computer (uninstall from the old one).
-
-### Forbidden
-
-- Any commercial use — including use by a sole trader for paying customers.
-- Modifying, redistributing, or reselling the source or the binary.
-- Rebranding the extension (changing `brand.name`, logo, colors, links to
-  your own brand).
-- Sharing the install with another person.
-
-### Best for
-
-Individuals who want a lightweight CRM on top of their own WhatsApp Web
-conversations and do not need to rebrand or resell.
-
-## 3. Commercial — $59
+## 2. Commercial — $59
 
 ### Permitted
 
@@ -71,7 +47,7 @@ conversations and do not need to rebrand or resell.
 A single business that wants to use LeadDock internally, with its own brand on
 the extension. The business does not resell LeadDock.
 
-## 4. Agency — $99
+## 3. Agency — $99
 
 ### Permitted
 
@@ -93,103 +69,69 @@ the extension. The business does not resell LeadDock.
 ### Best for
 
 Small agencies, freelancers, and consultants delivering WhatsApp Web CRM
-solutions to a handful of clients.
+solutions to clients.
 
-## 5. Extended Reseller — $149
+## 4. How to choose
 
-### Permitted
+| If you want to…                                                  | Choose     |
+| ---------------------------------------------------------------- | ---------- |
+| Rebrand LeadDock for your own company, used internally           | Commercial |
+| Deliver LeadDock (built) to client companies                     | Agency     |
 
-- White-label the Software end-to-end (name, logo, colors, links, copy).
-- Resell the Binary to end users, in unlimited quantity.
-- Resell the Source to other developers under the Licensee's own brand and
-  pricing — provided the Licensee attaches a license at least as restrictive
-  as the Commercial tier to downstream recipients.
-- Modify, extend, or rebrand the Software without limit.
+Neither tier grants source-resale rights. LeadDock may be rebranded per your
+tier; it may not be resold as someone else's developer kit. For custom or OEM
+arrangements, contact the support address in `src/config/brand.js`.
 
-### Conditions
-
-- Must not represent the Software as affiliated with or endorsed by WhatsApp
-  or Meta.
-- Must not use the "LeadDock" name or the Licensor's identity to imply
-  endorsement of the Licensee's products.
-- The Licensee is solely responsible for end-user support, refunds, and
-  compliance for products it distributes.
-- This License, the independence notice, and the privacy policy must travel
-  with any redistribution of the Source.
-
-### Best for
-
-Resellers, SaaS businesses, and white-label agencies that want to distribute
-LeadDock under their own brand as a product or developer kit.
-
-## 6. How to choose
-
-| If you want to…                                                            | Choose               |
-| -------------------------------------------------------------------------- | -------------------- |
-| Use LeadDock for your own leads, nothing more                                | Personal            |
-| Rebrand LeadDock for your own company                                         | Commercial           |
-| Deliver LeadDock (built) to a small number of clients                         | Agency               |
-| Resell LeadDock under your own brand, as source or binary, without limit      | Extended Reseller    |
-| Sell a SaaS product that wraps LeadDock's source                              | Extended Reseller    |
-
-## 7. Upgrade path
+## 5. Upgrade path
 
 You can upgrade at any time by paying the difference between your current tier
 and the target tier. Contact the support email in `src/config/brand.js` with
 your original order reference.
 
-- Personal → Commercial: pay $30.
-- Personal → Agency: pay $70.
-- Personal → Extended Reseller: pay $120.
 - Commercial → Agency: pay $40.
-- Commercial → Extended Reseller: pay $90.
-- Agency → Extended Reseller: pay $50.
 
 Downgrades are not offered; the lower-tier license terms cannot retract
 rights already granted for the period you held the higher tier.
 
-## 8. FAQ
+## 6. FAQ
 
 ### Can I use LeadDock on more than one computer?
 
-- **Personal:** Yes, for your own use. Uninstall from the old computer first.
 - **Commercial:** Yes, within your organization, up to a reasonable seat count.
 - **Agency:** You install it on the computers you control for client delivery.
   Each client End Product can be installed on the client's own machines.
-- **Extended Reseller:** Your downstream license governs the end users.
 
 ### Can I show my clients the source code?
 
-- **Personal / Commercial:** No — the source is for you, not for redistribution.
-- **Agency:** No. Clients receive the Binary only. Showing or delivering the
-  source requires an Extended Reseller license (or an additional Agency
-  license per client).
-- **Extended Reseller:** Yes, you may resell the source, subject to attaching
-  a downstream license at least as restrictive as the Commercial tier.
+No — in both tiers the source is for the Licensee, not for redistribution.
+Agency clients receive the Binary only.
 
 ### Can I modify the source?
 
-- **Personal:** No.
-- **Commercial / Agency / Extended Reseller:** Yes.
+Yes, in both tiers. Modification is a core part of both offers.
+
+### Can I resell the source?
+
+No. No tier grants source-resale rights. For custom/OEM licensing, contact the
+support address in `src/config/brand.js`.
 
 ### Can I remove the independence notice?
 
 No. The independence notice (stating LeadDock is not affiliated with WhatsApp or
 Meta) must travel with the product, the source, and the documentation in all
 tiers. Removing it is a license violation and a Chrome Web Store policy risk.
+(Rebranding the *product identity* — name, logo, colors — is expected and fine.)
 
 ### Do I get future updates?
 
-- Personal and Commercial buyers get the version they purchased.
-- Agency and Extended Reseller buyers get minor updates within the same major
-  version (e.g., 1.0.x → 1.0.y). Major version upgrades (1.x → 2.0) are
-  offered at a discount to existing buyers.
+- Both tiers include minor updates within the same major version
+  (e.g., 1.0.x → 1.0.y). Major version upgrades (1.x → 2.0) are offered at a
+  discount to existing buyers.
 
 ### Can I get a refund?
 
 See `docs/SELLING.md` §6.2 for the refund policy. The short version: refunds
-are available within 7 days if the source has not been downloaded (for tiers
-that ship source).
+are available within 7 days if the source has not been downloaded.
 
 ### Can I claim LeadDock is "WhatsApp-approved"?
 
@@ -202,16 +144,13 @@ in-product copy.
 Email the support address in `src/config/brand.js`. We will help you pick the
 right tier or arrange a custom license.
 
-## 9. Get legal review
+## 7. Get legal review
 
 This guide and `LICENSE.md` are starting templates, not legal advice.
-Before any commercial distribution, especially for the Agency and Extended
-Reseller tiers, have a qualified lawyer in your jurisdiction review the
-license and your intended use. Common adjustments:
+Before any commercial distribution, have a qualified lawyer in your
+jurisdiction review the license and your intended use. Common adjustments:
 
 - Specifying governing law and jurisdiction (placeholder in `LICENSE.md` §12).
 - Adding data processing addenda if you operate under GDPR / CCPA / similar.
 - Adjusting the limitation-of-liability cap to match your commercial
   insurance coverage.
-- Adding specific clauses for SaaS distribution (Extended Reseller) if you
-  plan to operate LeadDock as a hosted product rather than a downloaded one.

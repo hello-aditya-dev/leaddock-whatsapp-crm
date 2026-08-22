@@ -96,8 +96,8 @@ LeadDock does **not** read:
 If you believe you have found a security vulnerability in LeadDock, please
 report it responsibly:
 
-- Email: see `supportEmail` in `src/config/brand.js` (default placeholder:
-  `security@example.com` — replace before publishing).
+- Email: `witejackel@gmail.com` (also available as `supportEmail` in
+  `src/config/brand.js`).
 - Subject: `[LeadDock Security] <short summary>`.
 - Include: a clear description, reproduction steps, affected version
   (`manifest.json` `version` field), and any proof-of-concept.

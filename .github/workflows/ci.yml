@@ -18,30 +18,24 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        working-directory: leaddock
         run: npm install
 
       - name: Lint
-        working-directory: leaddock
         run: npm run lint
 
       - name: Test
-        working-directory: leaddock
         run: npm test
 
       - name: Build
-        working-directory: leaddock
         run: npm run build
 
       - name: Package release artifacts
-        working-directory: leaddock
         run: npm run package
 
       - name: Validate release artifacts
-        working-directory: leaddock
         run: |
           test -f release/leaddock-extension-v*.zip
-          test -f release/leaddock-source-v*.zip
+          test -f release/leaddock-commercial-kit-v*.zip
           echo "Release artifacts present:"
           ls -la release/
 
@@ -49,5 +43,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: leaddock-extension
-          path: leaddock/release/leaddock-extension-v*.zip
+          path: release/leaddock-extension-v*.zip
           if-no-files-found: error

@@ -127,9 +127,8 @@ documentation suite.
   LAUNCH-CHECKLIST.
 
 **Commercial**
-- Four-tier commercial license (Personal $29 / Commercial $59 / Agency $99 /
-  Extended Reseller $149).
-- Packaging scripts producing extension ZIP and source ZIP.
+- Two-tier commercial license (Commercial $59 / Agency $99).
+- Packaging scripts producing extension ZIP and commercial kit ZIP.
 
 ### Independence notice
 

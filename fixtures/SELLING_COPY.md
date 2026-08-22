@@ -22,10 +22,8 @@ Organize leads, add notes, manage follow-ups, and insert reusable replies withou
 Your WhatsApp inbox is not a CRM. LeadDock adds the missing sales layer without forcing a team into a large, expensive CRM.
 
 ## Pricing
-Personal — $29
 Commercial — $59
 Agency — $99
-Extended Reseller — $149
 
 ## Important disclosure
 LeadDock is an independent productivity extension for WhatsApp Web. It is not affiliated with or endorsed by WhatsApp or Meta.

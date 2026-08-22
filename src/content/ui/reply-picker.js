@@ -166,7 +166,7 @@ export async function insertReply(reply, contact) {
   const text = render(reply.content, contact || {});
   const current = adapter.readComposerText() || "";
   const matched = matchShortcut(current, [reply]);
-  let ok = false;
+  let ok;
   if (matched) {
     // Replace the trailing shortcut token.
     const prefix = matched.match.prefix;

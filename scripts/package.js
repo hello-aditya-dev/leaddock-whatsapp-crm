@@ -9,8 +9,16 @@
  * Uses the system `zip` binary when available; falls back to a Node-only
  * store-mode zip writer otherwise.
  */
-import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, readFileSync, writeFileSync } from "node:fs";
+import { execFileSync, execSync } from "node:child_process";
+import {
+  existsSync,
+  mkdirSync,
+  rmSync,
+  readFileSync,
+  writeFileSync,
+  readdirSync,
+  copyFileSync,
+} from "node:fs";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
@@ -25,12 +33,42 @@ function readVersion() {
 }
 
 function hasZip() {
+  if (process.platform === "win32") return false; // use PowerShell fallback below
   try {
     execFileSync("which", ["zip"], { stdio: "ignore" });
     return true;
   } catch {
     return false;
   }
+}
+
+function zipDirPowerShell(dir, outFile, opts = {}) {
+  // Compress-Archive has no include/exclude globs, so stage the file set
+  // into a temp dir first, then zip it.
+  const tmp = path.join(releaseDir, `.staging-${path.basename(outFile)}`);
+  rmSync(tmp, { recursive: true, force: true });
+  mkdirSync(tmp, { recursive: true });
+  const excludes = (opts.excludes || []).map((e) => e.replace(/\*\*?$/, "").replace(/\/$/, ""));
+  const copyRecursive = (srcRel) => {
+    for (const entry of readdirSync(path.join(dir, srcRel), { withFileTypes: true })) {
+      const rel = path.join(srcRel, entry.name);
+      if (excludes.some((ex) => rel === ex || rel.startsWith(ex + path.sep))) continue;
+      const dest = path.join(tmp, rel);
+      if (entry.isDirectory()) {
+        mkdirSync(dest, { recursive: true });
+        copyRecursive(rel);
+      } else {
+        mkdirSync(path.dirname(dest), { recursive: true });
+        copyFileSync(path.join(dir, rel), dest);
+      }
+    }
+  };
+  copyRecursive(".");
+  execSync(
+    `Compress-Archive -Path (Join-Path '${tmp.replace(/'/g, "''")}' *) -DestinationPath '${outFile.replace(/'/g, "''")}' -Force`,
+    { shell: "powershell.exe", stdio: "inherit" },
+  );
+  rmSync(tmp, { recursive: true, force: true });
 }
 
 function zipDir(dir, outFile, opts = {}) {
@@ -43,8 +81,7 @@ function zipDir(dir, outFile, opts = {}) {
     execFileSync("zip", args, { cwd: dir, stdio: "inherit" });
     return;
   }
-  // Fallback: minimal Node zip writer (store, no compression).
-  throw new Error("zip binary not available and Node fallback not implemented; install zip.");
+  zipDirPowerShell(dir, outFile, opts);
 }
 
 function main() {

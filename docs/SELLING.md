@@ -1,7 +1,7 @@
 # Selling LeadDock
 
 This document is the seller's playbook for LeadDock: how to position it, what
-each of the four license tiers means, how to structure the product page, the
+each of the two license tiers means, how to structure the product page, the
 demo video script, the delivery contents, support and refund guidance, buyer
 onboarding, and pricing rationale.
 
@@ -40,14 +40,15 @@ Avoid:
   LeadDock does not provide in v1.
 - Any claim about future roadmap features as if they ship today.
 
-## 2. The four tiers
+## 2. The two tiers
 
-| Tier                | Price | Best for                                  | What you can do                                                                                  |
-| ------------------- | ----- | ----------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Personal            | $29   | Solo users                                | Install and use LeadDock for your own WhatsApp Web leads. No resale, no redistribution.            |
-| Commercial          | $59   | One organization using it internally      | Modify the source, ship one branded end product inside your org. No reselling the kit.           |
-| Agency              | $99   | Agencies delivering client work           | Deliver up to 5 branded end products to clients. Clients get the binary, not the source.         |
-| Extended Reseller   | $149  | Resellers and white-label SaaS businesses | Full white-label + resell rights. Unlimited end products. May resell the source under your brand.|
+| Tier       | Price | Best for                             | What you can do                                                                        |
+| ---------- | ----- | ------------------------------------ | -------------------------------------------------------------------------------------- |
+| Commercial | $59   | One organization using it internally | Modify the source, ship one branded end product inside your org. No reselling the kit. |
+| Agency     | $99   | Agencies delivering client work      | Deliver up to 5 branded end products to clients. Clients get the binary, not the source. |
+
+Neither tier grants source-resale rights — LeadDock may be rebranded per the
+tier, but it may not become someone else's developer kit.
 
 See `docs/LICENSES.md` for the plain-language summary and `LICENSE.md` for
 the full license template.
@@ -72,7 +73,7 @@ A high-converting product page for LeadDock uses this skeleton:
    pipeline, privacy mode, white-label).
 6. **How it works** — 4 numbered steps (install, open WhatsApp Web, set
    status/notes/follow-ups, insert replies manually).
-7. **Pricing** — 4 tiers with bullets per tier. Mark Commercial as "Most
+7. **Pricing** — 2 tiers with bullets per tier. Mark Commercial as "Most
    Popular."
 8. **FAQ** — 6–8 short Q&As (local-first, no auto-send, permissions, privacy,
    license tiers, upgrade path).
@@ -107,24 +108,25 @@ captions for accessibility.
 
 ## 5. Delivery contents
 
-When a buyer purchases any tier above Personal, deliver:
+When a buyer purchases any tier, deliver:
 
-| Item                                                          | Personal | Commercial | Agency | Extended Reseller |
-| ------------------------------------------------------------ | -------- | ---------- | ------ | ----------------- |
-| `leaddock-extension-vX.Y.Z.zip` (built, installable)           | Yes      | Yes        | Yes    | Yes               |
-| `leaddock-source-vX.Y.Z.zip` (full source)                      | No       | Yes        | Yes    | Yes               |
-| `README.md`                                                   | Yes      | Yes        | Yes    | Yes               |
-| `LICENSE.md` (their tier highlighted)                          | Yes      | Yes        | Yes    | Yes               |
-| `PRIVACY.md`                                                  | Yes      | Yes        | Yes    | Yes               |
-| `SECURITY.md`                                                 | Yes      | Yes        | Yes    | Yes               |
-| `CHANGELOG.md`                                                | Yes      | Yes        | Yes    | Yes               |
-| `docs/` (full documentation set)                              | Yes      | Yes        | Yes    | Yes               |
-| Screenshots (5, 1280×800)                                     | Yes      | Yes        | Yes    | Yes               |
-| Demo video link                                               | Yes      | Yes        | Yes    | Yes               |
-| Support email + how to file issues                            | Yes      | Yes        | Yes    | Yes               |
+| Item                                                          | Commercial | Agency |
+| ------------------------------------------------------------ | ---------- | ------ |
+| `leaddock-extension-vX.Y.Z.zip` (built, installable)           | Yes        | Yes    |
+| `leaddock-commercial-kit-vX.Y.Z.zip` (full source kit)         | Yes        | Yes    |
+| `README.md`                                                   | Yes        | Yes    |
+| `LICENSE.md` (their tier highlighted)                          | Yes        | Yes    |
+| `PRIVACY.md`                                                  | Yes        | Yes    |
+| `SECURITY.md`                                                 | Yes        | Yes    |
+| `CHANGELOG.md`                                                | Yes        | Yes    |
+| `docs/` (full documentation set)                              | Yes        | Yes    |
+| Screenshots (5, 1280×800)                                     | Yes        | Yes    |
+| Demo video link                                               | Yes        | Yes    |
+| Support email + how to file issues                            | Yes        | Yes    |
 
-Personal buyers receive the built extension and the user-facing docs only —
-they do not receive the source.
+Both tiers receive the source. The difference is deployment rights:
+Commercial ships one internal Branded End Product; Agency delivers up to five
+client End Products as binaries only.
 
 ## 6. Support and refund guidance
 
@@ -142,11 +144,9 @@ they do not receive the source.
 
 Recommended refund policy (state it on the product page):
 
-- Personal: full refund within 7 days if the buyer has not loaded the
-  extension into Chrome.
-- Commercial / Agency / Extended Reseller: refund within 7 days if the source
-  has not been downloaded / unzipped. Once the source is downloaded, refunds
-  are at the seller's discretion because the asset cannot be "returned."
+- Commercial / Agency: refund within 7 days if the source has not been
+  downloaded / unzipped. Once the source is downloaded, refunds are at the
+  seller's discretion because the asset cannot be "returned."
 
 This policy is a starting point — adapt to your jurisdiction and payment
 processor rules. State the policy clearly on the product page before
@@ -159,31 +159,27 @@ A smooth onboarding flow reduces refund requests and bad reviews.
 1. **Purchase confirmation email** with download links, the license tier,
    and the support email.
 2. **Install** — point them to `docs/INSTALLATION.md` for the load-unpacked
-   steps. For non-technical buyers on the Personal tier, offer a screen-share
-   install session.
+    steps.
 3. **Load demo data** — Options → Load demo data. This gives the buyer a
    populated CRM to explore in 30 seconds.
 4. **Reset demo** — Options → Reset all CRM data, or `npm run demo:reset`
    for source buyers.
-5. **Customize brand** (Commercial and above) — point them to
+5. **Customize brand** — point them to
    `docs/CUSTOMIZATION.md`. They edit `src/config/brand.js`, replace the
    icons, edit the fixture defaults.
-6. **Publish** (Agency / Extended Reseller) — point them to
+6. **Publish** (Agency, for client deployments) — point them to
    `docs/PUBLISHING.md` for the Chrome Web Store submission flow.
 
 ## 8. Pricing rationale
 
-- **Personal $29** — comparable to a one-time productivity app purchase.
-  Under the price of a single month of most SaaS CRMs. Anchors the brand as
-  affordable.
-- **Commercial $59** — roughly 2× Personal. The buyer gets the source and
-  the right to ship one branded internal product. Justified by the value of
-  rebranding plus source access.
-- **Agency $99** — roughly 3× Personal. Five client End Products at ~$20 per
-  client end-product is an attractive effective price for a small agency.
-- **Extended Reseller $149** — premium tier. The buyer can resell, so the
-  price reflects the commercial upside. Still cheaper than building a
-  comparable extension from scratch (typically weeks of engineering).
+- **Commercial $59** — the hero offer. The buyer gets the source and the
+  right to ship one branded internal product. Justified by the value of
+  rebranding plus source access; undercuts a single month of most team CRMs
+  as a one-time payment.
+- **Agency $99** — roughly 1.7× Commercial. Five client End Products at ~$20
+  per client end-product is an attractive effective price for a small agency.
+  Exists to raise average order value and to make the offer obvious for
+  client-serving buyers.
 
 The tier structure intentionally makes Commercial the "default" choice for
 most buyers — it is the tier that delivers the most value for the lowest
